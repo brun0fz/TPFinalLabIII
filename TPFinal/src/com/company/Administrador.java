@@ -1,4 +1,4 @@
 package com.company;
 
-public class Administrador extends Usuario{
+public class Administrador extends Conserje{
 }
