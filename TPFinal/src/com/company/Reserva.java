@@ -11,6 +11,8 @@ public class Reserva {
     private LocalDate fechaIn;
     private LocalDate fechaOut;
     private Double precio;
+    private int num;
+
 
     private List<Pasajero> pasajeroList = new ArrayList<>();
 
