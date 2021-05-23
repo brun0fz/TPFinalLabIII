@@ -5,11 +5,13 @@ public class Pasajero extends Usuario{
     private String direccion;
     private String telefono;
     private String email;
+    private Reserva reserva=null;
 
     public Pasajero() {
     }
 
-    public Pasajero(String direccion, String telefono, String email) {
+    public Pasajero(String nombre, String apellido, String dni, String usuario, String constrasena, String direccion, String telefono, String email) {
+        super(nombre, apellido, dni, usuario, constrasena);
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
@@ -37,5 +39,13 @@ public class Pasajero extends Usuario{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
 }

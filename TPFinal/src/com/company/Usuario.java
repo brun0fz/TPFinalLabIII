@@ -19,6 +19,7 @@ public abstract class Usuario {
         this.constrasena = constrasena;
     }
 
+
     public String getNombre() {
         return nombre;
     }
