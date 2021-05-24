@@ -59,4 +59,6 @@ public abstract class Usuario {
     public void setConstrasena(String constrasena) {
         this.constrasena = constrasena;
     }
+
+
 }

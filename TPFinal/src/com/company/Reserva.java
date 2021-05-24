@@ -23,6 +23,43 @@ public class Reserva {
         this.precio = precio;
     }
 
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
 
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+    }
 
+    public Pasajero getPasajero() {
+        return pasajero;
+    }
+
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
+    }
+
+    public LocalDate getFechaIn() {
+        return fechaIn;
+    }
+
+    public void setFechaIn(LocalDate fechaIn) {
+        this.fechaIn = fechaIn;
+    }
+
+    public LocalDate getFechaOut() {
+        return fechaOut;
+    }
+
+    public void setFechaOut(LocalDate fechaOut) {
+        this.fechaOut = fechaOut;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
 }
