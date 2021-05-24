@@ -2,8 +2,6 @@ package com.company;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Conserje extends Usuario {
@@ -18,8 +16,8 @@ public class Conserje extends Usuario {
     public Habitacion buscarHabitacionDisponible(String tipo) {
 
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
-            if (habitacion.getTipo() == tipo) {
-                if (habitacion.getEstado() == EstadoHabitacion.LIBRE) {
+            if (habitacion.getTipo().equals(tipo)) {
+                if (habitacion.getEstado().equals(EstadoHabitacion.LIBRE)) {
                     return habitacion;
                 }
             }
@@ -30,7 +28,7 @@ public class Conserje extends Usuario {
     public Pasajero buscarPasajeros(String user) {
 
         for (Usuario usuario : Hotel.getUsuarioList()) {
-            if (usuario.getUsuario() == user) {
+            if (usuario.getUsuario().equals(user)) {
                 return (Pasajero) usuario;
             }
         }
@@ -71,9 +69,9 @@ public class Conserje extends Usuario {
 
         String com = "s";
 
-        Habitacion habitacion = null;
+        Habitacion habitacion;
 
-        while (com == "s") {
+        while (com.equals("s")) {
             System.out.print("Ingrese tipo de habitacion: ");
             String tipoHabit = scanner.nextLine(); ///Solucionar
 
@@ -112,29 +110,29 @@ public class Conserje extends Usuario {
     public Habitacion buscarHabitacionPasajero(String dni) {
 
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
-            if (habitacion.getPasajero().getDni() == dni) {
+            if (habitacion.getPasajero().getDni().equals(dni)) {
                 return habitacion;
             }
         }
         return null;
     }
 
-    public int calcularTotalDias(Habitacion habitacion) {
+    public int calcularTotalDias(LocalDate desde, LocalDate hasta) {
 
-        Period period = Period.between(habitacion.getCheckIn(), habitacion.getCheckOut());
+        Period period = Period.between(desde, hasta);
 
         return period.getDays();
 
     }
 
-    public double calcularPrecioDias(Habitacion habitacion){
-        return habitacion.getPrecio()*calcularTotalDias(habitacion);
+    public double calcularPrecioDias(Habitacion habitacion, LocalDate desde, LocalDate hasta){
+        return habitacion.getPrecio()*calcularTotalDias(desde, hasta);
 
     }
 
     public void checkOut() {
 
-        double total=0;
+        double total;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese DNI: ");
@@ -153,9 +151,84 @@ public class Conserje extends Usuario {
             habitacion.setPasajero(null);
             habitacion.setConsumoList(null);
 
+            System.out.println("Usted debe pagar:" + total);
         }
 
     }
+
+
+    public void reservar() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String com = "s";
+
+        Habitacion habitacion;
+
+        while (com.equals("s")) {
+            System.out.print("Ingrese tipo de habitacion: ");
+            String tipoHabit = scanner.nextLine(); ///Solucionar
+
+            habitacion = buscarHabitacionDisponible(tipoHabit);
+
+            if (habitacion == null) {
+                System.out.println("No hay habitaciones disponibles del tipo: " + tipoHabit + "Desea buscar habitaciones de otro tipo?: [s/n]");
+                com = scanner.nextLine();
+
+            } else {
+                com = "n";
+
+                System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
+
+                System.out.println("Ingrese el usuario del pasajero: ");
+
+                String usuario = scanner.nextLine();
+
+                Pasajero pasajero = buscarPasajeros(usuario);
+
+                if (pasajero == null) {
+                    pasajero = crearPasajero();
+                    Hotel.getUsuarioList().add(pasajero);
+                }
+
+                habitacion.setPasajero(pasajero);
+                habitacion.setEstado(EstadoHabitacion.RESERVADA);
+                habitacion.setCheckOut(null);
+
+                int anio, mes, dia;
+
+                System.out.println("ingrese fecha de entrada: ");
+                System.out.print("Año: ");
+                anio = scanner.nextInt();
+                System.out.print("Mes: ");
+                mes = scanner.nextInt();
+                System.out.print("Dia: ");
+                dia = scanner.nextInt();
+
+               LocalDate fechaIn = LocalDate.of(anio, mes, dia);
+
+                System.out.println("ingrese fecha de salida: ");
+                System.out.print("Año: ");
+                anio = scanner.nextInt();
+                System.out.print("Mes: ");
+                mes = scanner.nextInt();
+                System.out.print("Dia: ");
+                dia = scanner.nextInt();
+                System.out.println("Hasta: ");
+
+                LocalDate fechaOut = LocalDate.of(anio, mes, dia);
+
+                Reserva reserva = new Reserva(habitacion, pasajero, fechaIn, fechaOut, calcularPrecioDias(habitacion, fechaIn, fechaOut);
+
+                Hotel.getReservaList().add(reserva);
+            }
+
+
+        }
+    }
+
+
+
 }
 
 

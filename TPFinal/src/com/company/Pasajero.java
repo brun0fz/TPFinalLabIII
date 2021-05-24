@@ -48,4 +48,8 @@ public class Pasajero extends Usuario{
     public void setReserva(Reserva reserva) {
         this.reserva = reserva;
     }
+
+    public void asd(){
+
+    }
 }

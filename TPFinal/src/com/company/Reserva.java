@@ -1,8 +1,7 @@
 package com.company;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Reserva {
 
@@ -12,6 +11,18 @@ public class Reserva {
     private LocalDate fechaOut;
     private Double precio;
 
-    private List<Pasajero> pasajeroList = new ArrayList<>();
+
+    public Reserva() {
+    }
+
+    public Reserva(Habitacion habitacion, Pasajero pasajero, LocalDate fechaIn, LocalDate fechaOut, Double precio) {
+        this.habitacion = habitacion;
+        this.pasajero = pasajero;
+        this.fechaIn = fechaIn;
+        this.fechaOut = fechaOut;
+        this.precio = precio;
+    }
+
+
 
 }
