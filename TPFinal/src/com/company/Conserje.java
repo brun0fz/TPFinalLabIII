@@ -144,7 +144,7 @@ public class Conserje extends Usuario {
 
             habitacion.setCheckOut(LocalDate.now());
 
-           total = habitacion.calcularPrecioConsumos()+calcularPrecioDias(habitacion);
+           total = habitacion.calcularPrecioConsumos()+calcularPrecioDias(habitacion, habitacion.getCheckIn(), habitacion.getCheckOut());
 
             habitacion.setCheckIn(null);
             habitacion.setEstado(EstadoHabitacion.LIBRE);
@@ -218,7 +218,7 @@ public class Conserje extends Usuario {
 
                 LocalDate fechaOut = LocalDate.of(anio, mes, dia);
 
-                Reserva reserva = new Reserva(habitacion, pasajero, fechaIn, fechaOut, calcularPrecioDias(habitacion, fechaIn, fechaOut);
+                Reserva reserva = new Reserva(habitacion, pasajero, fechaIn, fechaOut, calcularPrecioDias(habitacion, fechaIn, fechaOut));
 
                 Hotel.getReservaList().add(reserva);
             }
