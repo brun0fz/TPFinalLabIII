@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public final class Hotel {
 
@@ -53,5 +54,55 @@ public final class Hotel {
     public static void setReservaList(List<Reserva> reservaList) {
         Hotel.reservaList = reservaList;
     }
+
+
+    public static Usuario inicioDeSesion() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Usuario: ");
+        String user = scanner.nextLine();
+
+        System.out.print("Contraseña: ");
+        String pass = scanner.nextLine();
+
+        for (Usuario usuario : usuarioList) {
+
+            if (usuario.getUsuario().equals(user) && usuario.getConstrasena().equals(pass)) {
+
+                return usuario;
+            }
+        }
+        return null;
+    }
+
+    public static void registroPasajero(){
+
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Ingrese nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.print("Ingrese apellido: ");
+            String apellido = scanner.nextLine();
+            System.out.print("Ingrese DNI: ");
+            String dni = scanner.nextLine();
+            System.out.print("Ingrese usuario: ");
+            String usuario = scanner.nextLine();
+
+
+            System.out.print("Ingrese contraseña: ");
+            String contrasena = scanner.nextLine();
+            System.out.print("Ingrese direccion: ");
+            String direccion = scanner.nextLine();
+            System.out.print("Ingrese telefono: ");
+            String telefono = scanner.nextLine();
+            System.out.print("Ingrese mail: ");
+            String mail = scanner.nextLine();
+
+            Pasajero nuevoPasajero = new Pasajero(nombre, apellido, dni, usuario, contrasena, direccion, telefono, mail);
+
+            usuarioList.add(nuevoPasajero);
+
+        }
 
 }

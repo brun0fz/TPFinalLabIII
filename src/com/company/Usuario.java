@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public abstract class Usuario {
 
     private String nombre;

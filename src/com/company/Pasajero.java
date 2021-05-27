@@ -49,7 +49,14 @@ public class Pasajero extends Usuario{
         this.reserva = reserva;
     }
 
-    public void asd(){
-
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Pasajero{" +
+                "direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", email='" + email + '\'' +
+                ", reserva=" + reserva +
+                '}';
     }
 }

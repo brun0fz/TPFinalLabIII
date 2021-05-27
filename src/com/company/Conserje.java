@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-public class Conserje extends Usuario {
+public class Conserje extends Usuario implements Descuento{
+
+
 
     public Conserje() {
     }
@@ -84,7 +86,6 @@ public class Conserje extends Usuario {
 
         if (option.equals("s")) {
             Reserva reserva;
-            Pasajero pasajero;
             String dni;
 
             System.out.print("Ingrese numero de DNI ");
@@ -96,17 +97,17 @@ public class Conserje extends Usuario {
 
             System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
 
-            pasajero = buscarPasajeros(reserva.getPasajero().getUsuario());
-
-            habitacion.setPasajero(pasajero);
+            habitacion.setPasajero(reserva.getPasajero());
             habitacion.setCheckIn(LocalDate.now());
             habitacion.setEstado(EstadoHabitacion.OCUPADA);
             habitacion.setCheckOut(null);
 
+            Hotel.getReservaList().remove(reserva);
+
         } else {
             while (com.equals("s")) {
                 System.out.print("Ingrese tipo de habitacion: ");
-                String tipoHabit = scanner.nextLine(); ///Solucionar
+                String tipoHabit = scanner.nextLine(); ///hacer un swtich con los tipos de habitacion
 
                 habitacion = buscarHabitacionDisponible(tipoHabit);
 
@@ -255,11 +256,8 @@ public class Conserje extends Usuario {
 
                 Hotel.getReservaList().add(reserva);
             }
-
-
         }
     }
-
 
 }
 

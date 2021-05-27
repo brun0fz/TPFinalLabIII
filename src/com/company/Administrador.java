@@ -1,6 +1,6 @@
 package com.company;
 
-public class Administrador extends Conserje{
+public class Administrador extends Conserje implements Descuento{
 
 
 
