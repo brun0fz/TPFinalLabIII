@@ -31,7 +31,7 @@
     </file-type-list>
   </component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="6e5d6686-74b9-4eca-84ce-51f9ba36e29c" />
+    <option name="defaultAccountId" value="95e06f77-b862-4556-92e4-732f841de1fe" />
   </component>
   <component name="ProjectId" id="1t5sXJzH54weC0ccEtsGBN2fHvS" />
   <component name="ProjectLevelVcsManager">
@@ -171,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622158011693</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="test">
+      <created>1622158298386</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622158298386</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
