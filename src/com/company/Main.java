@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
         // menu();
         Administrador admin = new Administrador();
         Conserje conserje = new Conserje("dan", "sua", "33", "123", "45");
