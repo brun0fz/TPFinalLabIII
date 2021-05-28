@@ -1,15 +1,29 @@
 package com.company;
 
 
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        // menu();
+        Administrador admin = new Administrador();
+        Conserje conserje = new Conserje("dan", "sua", "33", "123", "45");
+        //Hotel.getUsuarioList().add(conserje);
+        //admin.guardarListaUsuariosArchivo();
 
+        admin.cargarListaUsuarioArchivo();
 
-        menu();
+        System.out.println(Hotel.getUsuarioList());
+
 
     }
 
@@ -41,9 +55,8 @@ public class Main {
                     Usuario user = Hotel.inicioDeSesion();
 
 
-                    if(user != null)
-                    {
-                        if ( user instanceof Conserje) {
+                    if (user != null) {
+                        if (user instanceof Conserje) {
                             com = 1;
                             conserje = (Conserje) user;
 
@@ -55,14 +68,14 @@ public class Main {
                             pasajero = (Pasajero) user;
                             com = 3;
                         }
-                    }else{
+                    } else {
 
                         System.out.println("No se econtro al usuario.");
                         com = 4;
 
                     }
 
-                    switch (com){
+                    switch (com) {
 
                         ///menu conserje
                         case 1:
@@ -73,7 +86,7 @@ public class Main {
 
                                 com = scanner.nextInt();
 
-                                switch (com){
+                                switch (com) {
 
                                     ///Buscar pasajeros
                                     case 1:
@@ -85,14 +98,14 @@ public class Main {
 
                                         break;
                                 }
-                            }while(com != 5);
+                            } while (com != 5);
                             break;
 
-                            //Menu admin
+                        //Menu admin
                         case 2:
                             break;
 
-                            //Menu Pasajero
+                        //Menu Pasajero
                         case 3:
 
                             System.out.println("anduvo");

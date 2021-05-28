@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public final class Hotel {
 
     private static String nombre;
@@ -14,6 +15,8 @@ public final class Hotel {
     private static List<Habitacion> habitacionList = new ArrayList<>();
 
     private static List<Reserva> reservaList = new ArrayList<>();
+
+    private static List<Producto> miniBar = new ArrayList<>();
 
     public static String getNombre() {
         return nombre;
