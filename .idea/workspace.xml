@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="test3">
-      <change afterPath="$PROJECT_DIR$/gson-2.8.7.jar" afterDir="false" />
+    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="gson">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Hotel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Hotel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/MiniBar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Pasajero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Pasajero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Conserje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Conserje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Habitacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled104.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled104.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarioList.json" beforeDir="false" afterPath="$PROJECT_DIR$/usuarioList.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +124,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/gson-2.8.7.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -156,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622070035029</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="gson">
+      <created>1622163622855</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622163622855</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +196,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Actualizacion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion" />
+    <MESSAGE value="gson" />
+    <option name="LAST_COMMIT_MESSAGE" value="gson" />
   </component>
 </project>

@@ -4,8 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-public class Conserje extends Usuario implements Descuento{
-
+public class Conserje extends Usuario implements Descuento {
 
 
     public Conserje() {
@@ -16,7 +15,6 @@ public class Conserje extends Usuario implements Descuento{
     }
 
     public Habitacion buscarHabitacionDisponible(String tipo) {
-
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
             if (habitacion.getTipo().equals(tipo)) {
                 if (habitacion.getEstado().equals(EstadoHabitacion.LIBRE)) {
@@ -27,10 +25,32 @@ public class Conserje extends Usuario implements Descuento{
         return null;
     }
 
-    public Pasajero buscarPasajeros(String user) {
+    public void mostrarHabitaciones(){
+        for(Habitacion habitacion : Hotel.getHabitacionList()){
+            System.out.println(habitacion);
+        }
+    }
 
+    public void mostrarHabitacionesEstado(String estado){
+        for(Habitacion habitacion : Hotel.getHabitacionList()){
+            if(habitacion.getEstado().equals(estado)){
+                System.out.println(habitacion);
+            }
+        }
+    }
+
+
+    public void mostrarHabitacionesTipo(String tipo){
+        for(Habitacion habitacion : Hotel.getHabitacionList()){
+            if(habitacion.getTipo().equals(tipo)){
+                System.out.println(habitacion);
+            }
+        }
+    }
+
+    public Pasajero buscarPasajeros(String user) {
         for (Usuario usuario : Hotel.getUsuarioList()) {
-            if (usuario.getUsuario().equals(user)) {
+            if (usuario instanceof Pasajero && usuario.getUsuario().equals(user)) {
                 return (Pasajero) usuario;
             }
         }
@@ -78,49 +98,58 @@ public class Conserje extends Usuario implements Descuento{
 
         Scanner scanner = new Scanner(System.in);
 
-        String com = "s", option;
+        String com = "s";
 
         Habitacion habitacion;
-        System.out.print("Tiene una reserva? ");
-        option = scanner.nextLine();
+        System.out.print("Tiene una reserva? [s/n]: ");
+        com = scanner.nextLine();
 
-        if (option.equals("s")) {
+        if (com.equals("s")) {
             Reserva reserva;
             String dni;
 
-            System.out.print("Ingrese numero de DNI ");
-            dni = scanner.nextLine();
+            while (com.equals("s")) {
 
-            reserva = buscarReservaPasajero(dni);
+                System.out.print("Ingrese numero de DNI del pasajero: ");
+                dni = scanner.nextLine();
 
-            habitacion = reserva.getHabitacion();
+                reserva = buscarReservaPasajero(dni);
 
-            System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
+                if (reserva != null) {
 
-            habitacion.setPasajero(reserva.getPasajero());
-            habitacion.setCheckIn(LocalDate.now());
-            habitacion.setEstado(EstadoHabitacion.OCUPADA);
-            habitacion.setCheckOut(null);
+                    habitacion = reserva.getHabitacion();
 
-            Hotel.getReservaList().remove(reserva);
+                    System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
+
+                    habitacion.setPasajero(reserva.getPasajero());
+                    habitacion.setCheckIn(LocalDate.now());
+                    habitacion.setEstado(EstadoHabitacion.OCUPADA);
+                    habitacion.setCheckOut(null);
+
+                    reserva.setActivo(false);
+
+                } else {
+                    System.out.print("No se encontro la reserva. Desea buscar otra vez? [s/n]: ");
+                    com = scanner.nextLine();
+                }
+            }
 
         } else {
+
+            com = "s";
             while (com.equals("s")) {
+
                 System.out.print("Ingrese tipo de habitacion: ");
                 String tipoHabit = scanner.nextLine(); ///hacer un swtich con los tipos de habitacion
 
                 habitacion = buscarHabitacionDisponible(tipoHabit);
 
-                if (habitacion == null) {
-                    System.out.println("No hay habitaciones disponibles del tipo: " + tipoHabit + "Desea buscar habitaciones de otro tipo?: [s/n]");
-                    com = scanner.nextLine();
-
-                } else {
+                if (habitacion != null) {
                     com = "n";
 
                     System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
 
-                    System.out.println("Ingrese el usuario del pasajero: ");
+                    System.out.print("Ingrese el usuario del pasajero: ");
 
                     String usuario = scanner.nextLine();
 
@@ -136,7 +165,9 @@ public class Conserje extends Usuario implements Descuento{
                     habitacion.setEstado(EstadoHabitacion.OCUPADA);
                     habitacion.setCheckOut(null);
 
-
+                } else {
+                    System.out.println("No hay habitaciones disponibles del tipo: " + tipoHabit + "Desea buscar habitaciones de otro tipo?: [s/n]");
+                    com = scanner.nextLine();
                 }
             }
         }
@@ -168,25 +199,36 @@ public class Conserje extends Usuario implements Descuento{
     public void checkOut() {
 
         double total;
+        String com = "s";
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese DNI: ");
 
-        String dni = scanner.nextLine();
-        Habitacion habitacion = buscarHabitacionPasajero(dni);
+        while (com.equals("s")) {
+            System.out.println("Ingrese DNI del pasajero: ");
 
-        if (habitacion != null) {
+            String dni = scanner.nextLine();
 
-            habitacion.setCheckOut(LocalDate.now());
+            Habitacion habitacion = buscarHabitacionPasajero(dni);
 
-            total = habitacion.calcularPrecioConsumos() + calcularPrecioDias(habitacion, habitacion.getCheckIn(), habitacion.getCheckOut());
+            if (habitacion != null) {
+                com = "n";
 
-            habitacion.setCheckIn(null);
-            habitacion.setEstado(EstadoHabitacion.LIBRE);
-            habitacion.setPasajero(null);
-            habitacion.setConsumoList(null);
+                habitacion.setCheckOut(LocalDate.now());
 
-            System.out.println("Usted debe pagar:" + total);
+                total = habitacion.calcularPrecioConsumos() + calcularPrecioDias(habitacion, habitacion.getCheckIn(), habitacion.getCheckOut());
+
+                habitacion.setCheckIn(null);
+                habitacion.setEstado(EstadoHabitacion.LIBRE);
+                habitacion.setPasajero(null);
+                habitacion.setConsumoList(null);
+
+                System.out.println("Usted debe pagar:" + total);
+
+            } else {
+
+                System.out.print("No se ha encontrado una habitacion con ese pasajero. Desea volver a buscar? [s/n]: ");
+                com = scanner.nextLine();
+            }
         }
 
     }
@@ -200,6 +242,7 @@ public class Conserje extends Usuario implements Descuento{
         Habitacion habitacion;
 
         while (com.equals("s")) {
+
             System.out.print("Ingrese tipo de habitacion: ");
             String tipoHabit = scanner.nextLine(); ///Solucionar
 
@@ -248,7 +291,6 @@ public class Conserje extends Usuario implements Descuento{
                 mes = scanner.nextInt();
                 System.out.print("Dia: ");
                 dia = scanner.nextInt();
-                System.out.println("Hasta: ");
 
                 LocalDate fechaOut = LocalDate.of(anio, mes, dia);
 
@@ -259,6 +301,11 @@ public class Conserje extends Usuario implements Descuento{
         }
     }
 
+
+    @Override
+    public String toString() {
+        return "Conserje{}" + super.toString();
+    }
 }
 
 

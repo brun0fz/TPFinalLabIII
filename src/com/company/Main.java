@@ -1,28 +1,87 @@
 package com.company;
 
-
-import com.google.gson.Gson;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        // menu();
+
         Administrador admin = new Administrador();
         Conserje conserje = new Conserje("dan", "sua", "33", "123", "45");
-        //Hotel.getUsuarioList().add(conserje);
-        //admin.guardarListaUsuariosArchivo();
+        Conserje conserje2 = new Conserje("dan2", "sua", "33", "1234", "56");
+        Habitacion habi = new Habitacion("21", "12", "doble", 333.45, EstadoHabitacion.LIBRE);
 
-        admin.cargarListaUsuarioArchivo();
+        Hotel.getUsuarioList().add(conserje);
+        Hotel.getUsuarioList().add(conserje2);
 
-        System.out.println(Hotel.getUsuarioList());
+        Hotel.getHabitacionList().add(habi);
 
+        //menu();
+    }
+
+    public static void modificarPasajero(Pasajero pasajero){
+
+        int com;
+        Scanner scanner = new Scanner(System.in);
+
+        do{
+
+            System.out.println("Modificar Pasajero");
+
+            System.out.println(pasajero);
+
+            System.out.println("1. Nombre");
+            System.out.println("2. Apellido");
+            System.out.println("3. DNI");
+            System.out.println("4. Usuario");
+            System.out.println("5. Contraseña");
+            System.out.println("6. Direccion");
+            System.out.println("7. Telefono");
+            System.out.println("8. Email");
+            System.out.println("0. Salir");
+
+            com = scanner.nextInt();
+
+            switch (com){
+
+                case 1:
+                    System.out.println("Ingrese nuevo nombre: ");
+                    pasajero.setNombre(scanner.nextLine());
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    break;
+
+                case 6:
+                    break;
+
+                case 7:
+                    break;
+
+                case 8:
+                    break;
+
+                case 9:
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+            }
+
+
+
+        }while(com != 0);
 
     }
 
@@ -67,6 +126,7 @@ public class Main {
                             pasajero = (Pasajero) user;
                             com = 3;
                         }
+
                     } else {
 
                         System.out.println("No se econtro al usuario.");
@@ -80,24 +140,43 @@ public class Main {
                         case 1:
                             do {
                                 System.out.println("Menu Conserje");
-                                System.out.println("1. Buscar Pasajeros");
-                                System.out.println("x. Salir");
+                                System.out.println("1. Realizar CheckIn");
+                                System.out.println("2. Realizar CheckOut");
+                                System.out.println("3. Realizar Reserva");
+                                System.out.println("4. Buscar Pasajeros");
+                                System.out.println("5. Buscar habitaciones");
+                                System.out.println("0. Salir");
 
                                 com = scanner.nextInt();
 
                                 switch (com) {
 
-                                    ///Buscar pasajeros
+                                    ///CheckIn
                                     case 1:
+                                        conserje.checkIn();
+                                        break;
 
+                                    //CheckOut
+                                    case 2:
+                                        conserje.checkOut();
+                                        break;
+
+                                    ///Reservar
+                                    case 3:
+                                        conserje.reservar();
+                                        break;
+
+                                    case 4:
                                         System.out.println("Ingrese Usuario");
                                         String userPasajero = scanner.nextLine();
-
                                         System.out.println(conserje.buscarPasajeros(userPasajero));
+                                        break;
 
+                                    case 5:
+                                        //swtich de opciones
                                         break;
                                 }
-                            } while (com != 5);
+                            } while (com != 0);
                             break;
 
                         //Menu admin
@@ -106,8 +185,35 @@ public class Main {
 
                         //Menu Pasajero
                         case 3:
+                            do {
+                                System.out.println("Menu Pasajero");
+                                System.out.println("1. Realizar CheckIn");
+                                System.out.println("2. Realizar CheckOut");
+                                System.out.println("3. Realizar Reserva");
+                                System.out.println("4. Buscar Pasajeros");
+                                System.out.println("5. Buscar habitaciones");
+                                System.out.println("0. Salir");
 
-                            System.out.println("anduvo");
+                                com = scanner.nextInt();
+
+                                switch (com) {
+
+                                    case 1:
+                                        break;
+
+                                    case 2:
+                                        break;
+
+                                    case 3:
+                                        break;
+
+                                    case 4:
+                                        break;
+
+                                    case 5:
+                                        break;
+                                }
+                            }while(com != 0);
                             break;
 
                         case 4:

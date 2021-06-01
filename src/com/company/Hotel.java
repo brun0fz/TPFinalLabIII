@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public final class Hotel {
+public  class Hotel {
 
     private static String nombre;
     private static String direccion;

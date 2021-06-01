@@ -3,6 +3,7 @@ package com.company;
 import com.google.gson.Gson;
 
 import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Scanner;
 import java.io.BufferedReader;
@@ -11,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Administrador extends Conserje implements Descuento {
+
 
     public Administrador() {
     }
@@ -62,7 +64,7 @@ public class Administrador extends Conserje implements Descuento {
 
     }
 
-    public void guardarListaUsuariosArchivo() {
+    public void guardarListaReservasArchivo() {
         Gson gson = new Gson();
         String json = gson.toJson(Hotel.getUsuarioList());
 
@@ -75,17 +77,66 @@ public class Administrador extends Conserje implements Descuento {
         }
     }
 
-    public void cargarListaUsuarioArchivo(){
+    public void cargarListaReservasArchivo(){
         Gson gson = new Gson();
         try{
             BufferedReader br = new BufferedReader(new FileReader("usuarioList.json"));
-            Hotel.setUsuarioList(gson.fromJson(br,Hotel.getUsuarioList().getClass()));
+            Hotel.setReservaList(gson.fromJson(br,Hotel.getUsuarioList().getClass()));
 
         }catch (IOException e){
             e.printStackTrace();
         }
     }
-    ///falta lo mismo para reserva, habitacion
 
+    /*///falta lo mismo para reserva, habitacion
+
+    public void guardarListaReservasArchivo() {
+        Gson gson = new Gson();
+        String json = gson.toJson(Hotel.getReservaList());
+
+        try {
+            FileWriter writer = new FileWriter("reservaList.json");
+            writer.write(json);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarListaReservasArchivo(){
+        Gson gson = new Gson();
+        try{
+            BufferedReader br = new BufferedReader(new FileReader("reservaList.json"));
+            Hotel.setReservaList(gson.fromJson(br,Hotel.getReservaList().getClass()));
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void guardarListaHabitacionArchivo() {
+        Gson gson = new Gson();
+        String json = gson.toJson(Hotel.getHabitacionList());
+
+        try {
+            FileWriter writer = new FileWriter("habitacionList.json");
+            writer.write(json);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarListaHabitacionArchivo(){
+        Gson gson = new Gson();
+        try{
+            BufferedReader br = new BufferedReader(new FileReader("habitacionList.json"));
+            Hotel.setHabitacionList(gson.fromJson(br,Hotel.getHabitacionList().getClass()));
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+*/
 
 }

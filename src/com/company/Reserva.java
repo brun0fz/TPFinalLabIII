@@ -11,6 +11,8 @@ public class Reserva {
     private LocalDate fechaOut;
     private Double precio;
 
+    private boolean activo;
+
 
     public Reserva() {
     }
@@ -61,5 +63,13 @@ public class Reserva {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public boolean isActivo() {
+        return activo;
     }
 }

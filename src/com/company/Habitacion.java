@@ -19,8 +19,8 @@ public class Habitacion {
 
     private List<Producto> consumoList = new ArrayList<>();
 
-
-
+    public Habitacion() {
+    }
 
     public Habitacion(String piso, String numero, String tipo, Double precio, String estado) {
         this.piso = piso;

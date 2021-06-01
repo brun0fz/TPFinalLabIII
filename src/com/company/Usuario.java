@@ -63,4 +63,14 @@ public abstract class Usuario {
     }
 
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni='" + dni + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", constrasena='" + constrasena + '\'' +
+                '}';
+    }
 }
