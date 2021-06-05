@@ -1,7 +1,27 @@
 [ {
   "piso" : "21",
   "numero" : "12",
-  "tipo" : "doble",
+  "tipo" : "QUEEN",
+  "precio" : 333.45,
+  "pasajero" : null,
+  "checkIn" : null,
+  "checkOut" : null,
+  "consumoList" : [ ],
+  "estado" : "Libre"
+}, {
+  "piso" : "12",
+  "numero" : "115",
+  "tipo" : "TRIPLE",
+  "precio" : 333.45,
+  "pasajero" : null,
+  "checkIn" : null,
+  "checkOut" : null,
+  "consumoList" : [ ],
+  "estado" : "Libre"
+}, {
+  "piso" : "9",
+  "numero" : "3",
+  "tipo" : "QUEEN",
   "precio" : 333.45,
   "pasajero" : null,
   "checkIn" : null,

@@ -14,7 +14,7 @@ public class Conserje extends Usuario implements Descuento {
         super(nombre, apellido, dni, usuario, constrasena);
     }
 
-    public Habitacion buscarHabitacionDisponible(String tipo) {
+    public Habitacion buscarHabitacionDisponible(Enum tipo) {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
             if (habitacion.getTipo().equals(tipo)) {
                 if (habitacion.getEstado().equals(EstadoHabitacion.LIBRE)) {
@@ -25,24 +25,24 @@ public class Conserje extends Usuario implements Descuento {
         return null;
     }
 
-    public void mostrarHabitaciones(){
-        for(Habitacion habitacion : Hotel.getHabitacionList()){
+    public void mostrarHabitaciones() {
+        for (Habitacion habitacion : Hotel.getHabitacionList()) {
             System.out.println(habitacion);
         }
     }
 
-    public void mostrarHabitacionesEstado(String estado){
-        for(Habitacion habitacion : Hotel.getHabitacionList()){
-            if(habitacion.getEstado().equals(estado)){
+    public void mostrarHabitacionesEstado(String estado) {
+        for (Habitacion habitacion : Hotel.getHabitacionList()) {
+            if (habitacion.getEstado().equals(estado)) {
                 System.out.println(habitacion);
             }
         }
     }
 
 
-    public void mostrarHabitacionesTipo(String tipo){
-        for(Habitacion habitacion : Hotel.getHabitacionList()){
-            if(habitacion.getTipo().equals(tipo)){
+    public void mostrarHabitacionesTipo(String tipo) {
+        for (Habitacion habitacion : Hotel.getHabitacionList()) {
+            if (habitacion.getTipo().equals(tipo)) {
                 System.out.println(habitacion);
             }
         }
@@ -51,6 +51,16 @@ public class Conserje extends Usuario implements Descuento {
     public Pasajero buscarPasajeros(String user) {
         for (Usuario usuario : Hotel.getUsuarioList()) {
             if (usuario instanceof Pasajero && usuario.getUsuario().equals(user)) {
+                return (Pasajero) usuario;
+            }
+        }
+
+        return null;
+    }
+
+    public Pasajero buscarPasajerosDni(String dni) {
+        for (Usuario usuario : Hotel.getUsuarioList()) {
+            if (usuario instanceof Pasajero && usuario.getDni().equals(dni)) {
                 return (Pasajero) usuario;
             }
         }
@@ -100,7 +110,7 @@ public class Conserje extends Usuario implements Descuento {
 
         String com = "s";
 
-        Habitacion habitacion;
+        Habitacion habitacion = new Habitacion();
         System.out.print("Tiene una reserva? [s/n]: ");
         com = scanner.nextLine();
 
@@ -139,10 +149,38 @@ public class Conserje extends Usuario implements Descuento {
             com = "s";
             while (com.equals("s")) {
 
-                System.out.print("Ingrese tipo de habitacion: ");
-                String tipoHabit = scanner.nextLine(); ///hacer un swtich con los tipos de habitacion
+                int opt;
 
-                habitacion = buscarHabitacionDisponible(tipoHabit);
+                do {
+                    System.out.println("Tipos de habitaciones");
+                    System.out.println("1. Individual");
+                    System.out.println("2. Doble");
+                    System.out.println("3. Triple");
+                    System.out.println("4. Queen");
+
+                    opt = scanner.nextInt();
+
+                    switch (opt) {
+                        //INDIVIDUAL
+                        case 1:
+                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
+                            break;
+                        //Doble
+                        case 2:
+                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
+                            break;
+                        //Triple
+                        case 3:
+                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
+                            break;
+                        //Queen
+                        case 4:
+                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
+                            break;
+                    }
+
+                } while (opt != 0);
+
 
                 if (habitacion != null) {
                     com = "n";
@@ -166,10 +204,11 @@ public class Conserje extends Usuario implements Descuento {
                     habitacion.setCheckOut(null);
 
                 } else {
-                    System.out.println("No hay habitaciones disponibles del tipo: " + tipoHabit + "Desea buscar habitaciones de otro tipo?: [s/n]");
+                    System.out.println("No hay habitaciones disponibles de ese tipo, desea buscar habitaciones de otro tipo?: [s/n]");
                     com = scanner.nextLine();
                 }
             }
+
         }
     }
 
@@ -239,17 +278,43 @@ public class Conserje extends Usuario implements Descuento {
 
         String com = "s";
 
-        Habitacion habitacion;
+        Habitacion habitacion = new Habitacion();
 
         while (com.equals("s")) {
+            int opt;
 
-            System.out.print("Ingrese tipo de habitacion: ");
-            String tipoHabit = scanner.nextLine(); ///Solucionar
+            do {
+                System.out.println("Tipos de habitaciones");
+                System.out.println("1. Individual");
+                System.out.println("2. Doble");
+                System.out.println("3. Triple");
+                System.out.println("4. Queen");
 
-            habitacion = buscarHabitacionDisponible(tipoHabit);
+                opt = scanner.nextInt();
+
+                switch (opt) {
+                    //INDIVIDUAL
+                    case 1:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
+                        break;
+                    //Doble
+                    case 2:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
+                        break;
+                    //Triple
+                    case 3:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
+                        break;
+                    //Queen
+                    case 4:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
+                        break;
+                }
+
+            } while (opt != 0);
 
             if (habitacion == null) {
-                System.out.println("No hay habitaciones disponibles del tipo: " + tipoHabit + "Desea buscar habitaciones de otro tipo?: [s/n]");
+                System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
                 com = scanner.nextLine();
 
             } else {

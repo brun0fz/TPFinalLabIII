@@ -8,7 +8,7 @@ public class Habitacion {
 
     private String piso;
     private String numero;
-    private String tipo;
+    private TipoDeHabitacion tipo;
     private Double precio;
 
     private Pasajero pasajero;
@@ -22,7 +22,8 @@ public class Habitacion {
     public Habitacion() {
     }
 
-    public Habitacion(String piso, String numero, String tipo, Double precio, String estado) {
+
+    public Habitacion(String piso, String numero, TipoDeHabitacion tipo, Double precio, String estado) {
         this.piso = piso;
         this.numero = numero;
         this.tipo = tipo;
@@ -46,11 +47,11 @@ public class Habitacion {
         this.numero = numero;
     }
 
-    public String getTipo() {
+    public TipoDeHabitacion getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoDeHabitacion tipo) {
         this.tipo = tipo;
     }
 

@@ -85,7 +85,6 @@ public class Administrador extends Conserje implements Descuento {
 
 
 
-
     public void guardarListaReservaArchivo(){
         ObjectMapper mapper = new ObjectMapper();
 
@@ -134,9 +133,5 @@ public class Administrador extends Conserje implements Descuento {
             e.printStackTrace();
         }
     }
-
-
-
-
 
 }
