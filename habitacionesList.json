@@ -1,0 +1,11 @@
+[ {
+  "piso" : "21",
+  "numero" : "12",
+  "tipo" : "doble",
+  "precio" : 333.45,
+  "pasajero" : null,
+  "checkIn" : null,
+  "checkOut" : null,
+  "consumoList" : [ ],
+  "estado" : "Libre"
+} ]

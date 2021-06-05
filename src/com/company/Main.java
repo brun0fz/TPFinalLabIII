@@ -11,10 +11,25 @@ public class Main {
         Conserje conserje2 = new Conserje("dan2", "sua", "33", "1234", "56");
         Habitacion habi = new Habitacion("21", "12", "doble", 333.45, EstadoHabitacion.LIBRE);
 
-        Hotel.getUsuarioList().add(conserje);
-        Hotel.getUsuarioList().add(conserje2);
 
-        Hotel.getHabitacionList().add(habi);
+        //Hotel.getUsuarioList().add(conserje);
+        //Hotel.getUsuarioList().add(conserje2);
+
+        //admin.guardarListaUsuarioArchivo();
+
+        admin.cargarListaUsuarioArchivo();
+
+
+        //Hotel.getHabitacionList().add(habi);
+
+        //admin.guardarListaHabitacionArchivo();
+
+
+        admin.cargarListaHabitacionArchivo();
+
+        System.out.println(Hotel.getHabitacionList());
+
+
 
         //menu();
     }

@@ -1,0 +1,13 @@
+[ {
+  "nombre" : "dan",
+  "apellido" : "sua",
+  "dni" : "33",
+  "usuario" : "123",
+  "constrasena" : "45"
+}, {
+  "nombre" : "dan2",
+  "apellido" : "sua",
+  "dni" : "33",
+  "usuario" : "1234",
+  "constrasena" : "56"
+} ]

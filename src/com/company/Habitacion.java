@@ -113,4 +113,20 @@ public class Habitacion {
         }
         return total;
     }
+
+
+    @Override
+    public String toString() {
+        return "Habitacion{" +
+                "piso='" + piso + '\'' +
+                ", numero='" + numero + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", precio=" + precio +
+                ", pasajero=" + pasajero +
+                ", checkIn=" + checkIn +
+                ", checkOut=" + checkOut +
+                ", Estado='" + Estado + '\'' +
+                ", consumoList=" + consumoList +
+                '}';
+    }
 }

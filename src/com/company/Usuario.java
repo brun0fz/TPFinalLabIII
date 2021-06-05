@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Objects;
 
-public abstract class Usuario {
+public class Usuario {
 
     private String nombre;
     private String apellido;
