@@ -9,37 +9,45 @@ public class Main {
         Administrador admin = new Administrador("Bruno", "Fabrizio", "39123123", "Bruno", "1234");
 
         Conserje conserje = new Conserje("dan", "sua", "33", "123", "45");
-        //Pasajero pasajero = new Pasajero("Danilo","Suarez","33102857","danilo","1234","Funes 2461","2236688139","danilomdq@gmail.com");
+        Pasajero pasajero = new Pasajero("Danilo", "Suarez", "33102857", "danilo", "1234", "Funes 2461", "2236688139", "danilomdq@gmail.com");
 
-        Habitacion habi = new Habitacion("21", "12", TipoDeHabitacion.QUEEN, 333.45, EstadoHabitacion.LIBRE);
+        Habitacion habi = new Habitacion("21", "12", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
         Habitacion habi1 = new Habitacion("12", "115", TipoDeHabitacion.TRIPLE, 333.45, EstadoHabitacion.LIBRE);
         Habitacion habi2 = new Habitacion("9", "3", TipoDeHabitacion.QUEEN, 333.45, EstadoHabitacion.LIBRE);
 
+        Producto cocaCola = new Producto("Coca Cola", 120);
+        Producto agua = new Producto("Agua mineral", 120);
+        Producto sandwich = new Producto("Sandwich", 120);
 
+        Hotel.getMiniBar().add(cocaCola);
+        Hotel.getMiniBar().add(agua);
+        Hotel.getMiniBar().add(sandwich);
 
-       /* Hotel.getUsuarioList().add(admin);
+        Hotel.getUsuarioList().add(admin);
 
         Hotel.getHabitacionList().add(habi);
         Hotel.getHabitacionList().add(habi1);
         Hotel.getHabitacionList().add(habi2);
         Hotel.getUsuarioList().add(conserje);
+
+        Hotel.getUsuarioList().add(pasajero);
+
+
         //admin.guardarListaUsuarioArchivo();
         //admin.guardarListaHabitacionArchivo();
-        admin.cargarListaUsuarioArchivo();
+        //admin.cargarListaUsuarioArchivo();
 
-
-        //Hotel.getHabitacionList().add(habi);
 
         //admin.guardarListaHabitacionArchivo();
 
 
-        admin.cargarListaHabitacionArchivo();
+        //admin.cargarListaHabitacionArchivo();
 
 
         // System.out.println(Hotel.getHabitacionList());*/
 
 
-        //menu();
+        menu();
     }
 
 

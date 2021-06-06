@@ -151,35 +151,32 @@ public class Conserje extends Usuario implements Descuento {
 
                 int opt;
 
-                do {
-                    System.out.println("Tipos de habitaciones: ");
-                    System.out.println("1. Individual");
-                    System.out.println("2. Doble");
-                    System.out.println("3. Triple");
-                    System.out.println("4. Queen");
+                System.out.println("Tipos de habitaciones: ");
+                System.out.println("1. Individual");
+                System.out.println("2. Doble");
+                System.out.println("3. Triple");
+                System.out.println("4. Queen");
 
-                    opt = scanner.nextInt();
+                opt = scanner.nextInt();
 
-                    switch (opt) {
-                        //INDIVIDUAL
-                        case 1:
-                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
-                            break;
-                        //Doble
-                        case 2:
-                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
-                            break;
-                        //Triple
-                        case 3:
-                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
-                            break;
-                        //Queen
-                        case 4:
-                            habitacion = buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
-                            break;
-                    }
-
-                } while (opt != 0);
+                switch (opt) {
+                    //INDIVIDUAL
+                    case 1:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
+                        break;
+                    //Doble
+                    case 2:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
+                        break;
+                    //Triple
+                    case 3:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
+                        break;
+                    //Queen
+                    case 4:
+                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
+                        break;
+                }
 
 
                 if (habitacion != null) {
@@ -189,6 +186,7 @@ public class Conserje extends Usuario implements Descuento {
 
                     System.out.print("Ingrese el usuario del pasajero: ");
 
+                    scanner.nextLine();
                     String usuario = scanner.nextLine();
 
                     Pasajero pasajero = buscarPasajeros(usuario);

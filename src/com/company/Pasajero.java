@@ -76,6 +76,8 @@ public class Pasajero extends Usuario {
 
             com = scanner.nextInt();
 
+            scanner.nextLine();
+
             switch (com) {
 
                 case 1:
@@ -127,7 +129,7 @@ public class Pasajero extends Usuario {
 
     public Habitacion buscarMiHabitacion() {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
-            if (habitacion.getPasajero().getDni().equals(this.getDni())) {
+            if (habitacion.getPasajero() != null && habitacion.getPasajero().getDni().equals(this.getDni())) {
                 return habitacion;
             }
         }
@@ -141,39 +143,46 @@ public class Pasajero extends Usuario {
 
         int com;
 
-        System.out.println("MINI BAR");
+        if(habitacion != null) {
 
-        do {
 
-            System.out.println("Elija el producto");
+            do {
 
-            System.out.println("1. Coca cola");
-            System.out.println("2. Agua mineral");
-            System.out.println("3. Sandwich de miga");
-            System.out.println("\n0. Salir");
+                System.out.println("MINI BAR");
 
-            com = scanner.nextInt();
+                System.out.println("Elija el producto");
 
-            switch (com) {
-                case 1:
-                    System.out.println("Coca cola!");
-                    habitacion.getConsumoList().add(Hotel.getMiniBar().get(0));
-                    break;
+                System.out.println("1. Coca cola");
+                System.out.println("2. Agua mineral");
+                System.out.println("3. Sandwich de miga");
+                System.out.println("\n0. Salir");
 
-                case 2:
-                    habitacion.getConsumoList().add(Hotel.getMiniBar().get(1));
-                    break;
+                com = scanner.nextInt();
 
-                case 3:
-                    habitacion.getConsumoList().add(Hotel.getMiniBar().get(2));
-                    break;
+                switch (com) {
+                    case 1:
+                        System.out.println("Coca cola!");
+                        habitacion.getConsumoList().add(Hotel.getMiniBar().get(0));
+                        break;
 
-                case 0:
-                    break;
+                    case 2:
+                        habitacion.getConsumoList().add(Hotel.getMiniBar().get(1));
+                        break;
 
-            }
+                    case 3:
+                        habitacion.getConsumoList().add(Hotel.getMiniBar().get(2));
+                        break;
 
-        } while (com != 0);
+                    case 0:
+                        break;
+
+                }
+
+            } while (com != 0);
+
+        }else{
+            System.out.println("Usted no se encuentra en ninguna habitacion.");
+        }
 
     }
 
