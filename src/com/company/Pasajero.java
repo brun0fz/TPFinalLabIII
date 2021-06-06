@@ -186,14 +186,13 @@ public class Pasajero extends Usuario {
 
     }
 
+
     @Override
     public String toString() {
         return super.toString() +
-                "Pasajero{" +
-                "direccion='" + direccion + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", email='" + email + '\'' +
-                ", reserva=" + reserva +
-                '}';
+                "Direccion........" + direccion + "\n" +
+                "Telefono........." + telefono + "\n" +
+                "Email............" + email + "\n" +
+                "Reserva.........." + reserva;
     }
 }

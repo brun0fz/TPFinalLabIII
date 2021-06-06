@@ -118,16 +118,15 @@ public class Habitacion {
 
     @Override
     public String toString() {
-        return "Habitacion{" +
-                "piso='" + piso + '\'' +
-                ", numero='" + numero + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", precio=" + precio +
-                ", pasajero=" + pasajero +
-                ", checkIn=" + checkIn +
-                ", checkOut=" + checkOut +
-                ", Estado='" + Estado + '\'' +
-                ", consumoList=" + consumoList +
-                '}';
+        return "Habitacion:\n" +
+                "Piso.........." + piso + "\n" +
+                "Numero........" + numero + "\n" +
+                "Tipo.........." + tipo + "\n" +
+                "Precio........" + precio +"\n"+
+                "Pasajero......" + pasajero +"\n"+
+                "CheckIn......." + checkIn+"\n" +
+                "CheckOut......" + checkOut+"\n" +
+                "Estado........" + Estado +"\n" +
+                "Consumos......" + consumoList ;
     }
 }

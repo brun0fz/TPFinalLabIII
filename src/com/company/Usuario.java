@@ -67,12 +67,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", dni='" + dni + '\'' +
-                ", usuario='" + usuario + '\'' +
-                ", constrasena='" + constrasena + '\'' +
-                '}';
+        return  "Nombre..........." + nombre + "\n" +
+                "Apellido........." + apellido + "\n" +
+                "Dni.............." + dni + "\n"+
+                "Usuario.........." + usuario + "\n" +
+                "Constrasena......" + constrasena + "\n";
     }
 }

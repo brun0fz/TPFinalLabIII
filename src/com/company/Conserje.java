@@ -48,9 +48,29 @@ public class Conserje extends Usuario implements Descuento {
         }
     }
 
-    public Pasajero buscarPasajeros(String user) {
+    public Pasajero buscarPasajerosUsuario(String user) {
         for (Usuario usuario : Hotel.getUsuarioList()) {
             if (usuario instanceof Pasajero && usuario.getUsuario().equals(user)) {
+                return (Pasajero) usuario;
+            }
+        }
+
+        return null;
+    }
+
+    public Pasajero buscarPasajerosNombre(String nombre) {
+        for (Usuario usuario : Hotel.getUsuarioList()) {
+            if (usuario instanceof Pasajero && usuario.getNombre().equals(nombre)) {
+                return (Pasajero) usuario;
+            }
+        }
+
+        return null;
+    }
+
+    public Pasajero buscarPasajerosApellido(String apellido) {
+        for (Usuario usuario : Hotel.getUsuarioList()) {
+            if (usuario instanceof Pasajero && usuario.getApellido().equals(apellido)) {
                 return (Pasajero) usuario;
             }
         }
@@ -189,7 +209,7 @@ public class Conserje extends Usuario implements Descuento {
                     scanner.nextLine();
                     String usuario = scanner.nextLine();
 
-                    Pasajero pasajero = buscarPasajeros(usuario);
+                    Pasajero pasajero = buscarPasajerosUsuario(usuario);
 
                     if (pasajero == null) {
                         pasajero = crearPasajero();
@@ -324,7 +344,7 @@ public class Conserje extends Usuario implements Descuento {
 
                 String usuario = scanner.nextLine();
 
-                Pasajero pasajero = buscarPasajeros(usuario);
+                Pasajero pasajero = buscarPasajerosUsuario(usuario);
 
                 if (pasajero == null) {
                     pasajero = crearPasajero();

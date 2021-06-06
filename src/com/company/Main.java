@@ -49,7 +49,10 @@ public class Main {
 
         menu();
     }
-
+    public static void limpiar() {
+        for(int i = 0; i< 24; ++i)
+            System.out.println("");
+    }
 
     public static void menu() {
 
@@ -113,7 +116,7 @@ public class Main {
                                 System.out.println("4. Buscar Pasajeros");
                                 System.out.println("5. Mostrar habitaciones por tipo");
                                 System.out.println("6. Mostrar habitaciones por estado");
-                                System.out.println("0. Salir");
+                                System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
 
@@ -133,11 +136,49 @@ public class Main {
                                     case 3:
                                         conserje.reservar();
                                         break;
-
+                                    //Buscar pasajeros
                                     case 4:
-                                        System.out.print("Ingrese DNI: ");
-                                        String dni = scanner.nextLine();
-                                        System.out.println(conserje.buscarPasajerosDni(dni));
+                                        do {
+                                            System.out.println("Buscar pasajeros por:");
+                                            System.out.println("1. Nombre");
+                                            System.out.println("2. Apellido");
+                                            System.out.println("3. Dni");
+                                            System.out.println("4. Usuario");
+                                            System.out.println("\n0. Salir");
+
+                                            com = scanner.nextInt();
+
+                                            switch (com) {
+                                                //Nombre
+                                                case 1:
+                                                    System.out.println("Ingrese el nombre:  ");
+                                                    String nombre = scanner.next();
+                                                    pasajero = conserje.buscarPasajerosNombre(nombre);
+                                                    System.out.println(pasajero);
+                                                    break;
+                                                //Apellido
+                                                case 2:
+                                                    System.out.println("Ingrese el apellido:  ");
+                                                    String apellido = scanner.next();
+                                                    pasajero = conserje.buscarPasajerosApellido(apellido);
+                                                    System.out.println(pasajero);
+                                                    break;
+                                                //Dni
+                                                case 3:
+                                                    System.out.print("Ingrese DNI: ");
+                                                    String dni = scanner.next();
+                                                    System.out.println(conserje.buscarPasajerosDni(dni));
+                                                    break;
+                                                    //Usuario
+                                                case 4:
+                                                    System.out.println("Ingrese el usuario:  ");
+                                                    String usuario = scanner.next();
+                                                    pasajero = conserje.buscarPasajerosUsuario(usuario);
+                                                    System.out.println(pasajero);
+                                                    break;
+                                            }
+
+                                        } while (com != 0);
                                         break;
 
                                     case 5:
@@ -187,7 +228,7 @@ public class Main {
                                             System.out.println("3. Reservada");
                                             System.out.println("4. En Limpieza");
                                             System.out.println("5. En Reparacion");
-                                            System.out.println("0. Salir");
+                                            System.out.println("\n0. Salir");
 
 
                                             com = scanner.nextInt();
@@ -241,7 +282,7 @@ public class Main {
                                 System.out.println("7. Crear Usuario");
                                 System.out.println("8. Asignar Permisos");
                                 System.out.println("9. Realizar Back-Up");
-                                System.out.println("0. Salir");
+                                System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
 
@@ -450,3 +491,4 @@ public class Main {
         } while (com != 3);
     }
 }
+
