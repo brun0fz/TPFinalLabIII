@@ -14,7 +14,7 @@ public class Conserje extends Usuario implements Descuento {
         super(nombre, apellido, dni, usuario, constrasena);
     }
 
-    public Habitacion buscarHabitacionDisponible(Enum tipo) {
+    public Habitacion buscarHabitacionDisponible(TipoDeHabitacion tipo) {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
             if (habitacion.getTipo().equals(tipo)) {
                 if (habitacion.getEstado().equals(EstadoHabitacion.LIBRE)) {
@@ -31,7 +31,7 @@ public class Conserje extends Usuario implements Descuento {
         }
     }
 
-    public void mostrarHabitacionesEstado(String estado) {
+    public void mostrarHabitacionesEstado(EstadoHabitacion estado) {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
             if (habitacion.getEstado().equals(estado)) {
                 System.out.println(habitacion);
@@ -40,7 +40,7 @@ public class Conserje extends Usuario implements Descuento {
     }
 
 
-    public void mostrarHabitacionesTipo(String tipo) {
+    public void mostrarHabitacionesTipo(TipoDeHabitacion tipo) {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
             if (habitacion.getTipo().equals(tipo)) {
                 System.out.println(habitacion);
@@ -152,7 +152,7 @@ public class Conserje extends Usuario implements Descuento {
                 int opt;
 
                 do {
-                    System.out.println("Tipos de habitaciones");
+                    System.out.println("Tipos de habitaciones: ");
                     System.out.println("1. Individual");
                     System.out.println("2. Doble");
                     System.out.println("3. Triple");

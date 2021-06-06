@@ -1,13 +1,14 @@
 package com.company;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Pasajero extends Usuario{
+public class Pasajero extends Usuario {
 
     private String direccion;
     private String telefono;
     private String email;
-    private Reserva reserva=null;
+    private Reserva reserva = null;
 
     public Pasajero() {
     }
@@ -50,7 +51,9 @@ public class Pasajero extends Usuario{
     public void setReserva(Reserva reserva) {
         this.reserva = reserva;
     }
-    public static void modificarPasajero(Pasajero pasajero) {
+
+
+    public void modificarPasajero(Pasajero pasajero) {
 
         int com;
         Scanner scanner = new Scanner(System.in);
@@ -119,9 +122,60 @@ public class Pasajero extends Usuario{
 
 
         } while (com != 0);
-
     }
 
+
+    public Habitacion buscarMiHabitacion() {
+        for (Habitacion habitacion : Hotel.getHabitacionList()) {
+            if (habitacion.getPasajero().getDni().equals(this.getDni())) {
+                return habitacion;
+            }
+        }
+        return null;
+    }
+
+    public void realizarConsumo() {
+
+        Scanner scanner = new Scanner(System.in);
+        Habitacion habitacion = buscarMiHabitacion();
+
+        int com;
+
+        System.out.println("MINI BAR");
+
+        do {
+
+            System.out.println("Elija el producto");
+
+            System.out.println("1. Coca cola");
+            System.out.println("2. Agua mineral");
+            System.out.println("3. Sandwich de miga");
+            System.out.println("\n0. Salir");
+
+            com = scanner.nextInt();
+
+            switch (com) {
+                case 1:
+                    System.out.println("Coca cola!");
+                    habitacion.getConsumoList().add(Hotel.getMiniBar().get(0));
+                    break;
+
+                case 2:
+                    habitacion.getConsumoList().add(Hotel.getMiniBar().get(1));
+                    break;
+
+                case 3:
+                    habitacion.getConsumoList().add(Hotel.getMiniBar().get(2));
+                    break;
+
+                case 0:
+                    break;
+
+            }
+
+        } while (com != 0);
+
+    }
 
     @Override
     public String toString() {

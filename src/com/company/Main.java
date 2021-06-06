@@ -16,6 +16,7 @@ public class Main {
         Habitacion habi2 = new Habitacion("9", "3", TipoDeHabitacion.QUEEN, 333.45, EstadoHabitacion.LIBRE);
 
 
+
        /* Hotel.getUsuarioList().add(admin);
 
         Hotel.getHabitacionList().add(habi);
@@ -38,7 +39,7 @@ public class Main {
         // System.out.println(Hotel.getHabitacionList());*/
 
 
-        menu();
+        //menu();
     }
 
 
@@ -102,7 +103,8 @@ public class Main {
                                 System.out.println("2. Realizar CheckOut");
                                 System.out.println("3. Realizar Reserva");
                                 System.out.println("4. Buscar Pasajeros");
-                                System.out.println("5. Buscar habitaciones");
+                                System.out.println("5. Mostrar habitaciones por tipo");
+                                System.out.println("6. Mostrar habitaciones por estado");
                                 System.out.println("0. Salir");
 
                                 com = scanner.nextInt();
@@ -125,13 +127,94 @@ public class Main {
                                         break;
 
                                     case 4:
-                                        System.out.println("Ingrese Usuario");
-                                        String userPasajero = scanner.nextLine();
-                                        System.out.println(conserje.buscarPasajeros(userPasajero));
+                                        System.out.print("Ingrese DNI: ");
+                                        String dni = scanner.nextLine();
+                                        System.out.println(conserje.buscarPasajerosDni(dni));
                                         break;
 
                                     case 5:
-                                        //swtich de opciones
+
+                                        do {
+                                            System.out.println("Tipos de habitaciones");
+                                            System.out.println("1. Individual");
+                                            System.out.println("2. Doble");
+                                            System.out.println("3. Triple");
+                                            System.out.println("4. Queen");
+                                            System.out.println("\n0. Salir");
+
+                                            com = scanner.nextInt();
+
+                                            switch (com) {
+                                                //INDIVIDUAL
+                                                case 1:
+                                                    conserje.mostrarHabitacionesTipo(TipoDeHabitacion.INDIVIDUAL);
+                                                    break;
+                                                //Doble
+                                                case 2:
+                                                    conserje.mostrarHabitacionesTipo(TipoDeHabitacion.DOBLE);
+                                                    break;
+                                                //Triple
+                                                case 3:
+                                                    conserje.mostrarHabitacionesTipo(TipoDeHabitacion.TRIPLE);
+                                                    break;
+                                                //Queen
+                                                case 4:
+                                                    conserje.mostrarHabitacionesTipo(TipoDeHabitacion.QUEEN);
+                                                    break;
+
+                                                case 0:
+                                                    break;
+                                            }
+
+                                        } while (com != 0);
+
+                                        break;
+
+                                    case 6:
+
+                                        do {
+                                            System.out.println("Estado de la habitacion: ");
+                                            System.out.println("1. Libre");
+                                            System.out.println("2. Ocupada");
+                                            System.out.println("3. Reservada");
+                                            System.out.println("4. En Limpieza");
+                                            System.out.println("5. En Reparacion");
+                                            System.out.println("0. Salir");
+
+
+                                            com = scanner.nextInt();
+
+                                            switch (com) {
+
+                                                case 1:
+                                                    conserje.mostrarHabitacionesEstado(EstadoHabitacion.LIBRE);
+                                                    break;
+
+                                                case 2:
+                                                    conserje.mostrarHabitacionesEstado(EstadoHabitacion.OCUPADA);
+                                                    break;
+
+                                                case 3:
+                                                    conserje.mostrarHabitacionesEstado(EstadoHabitacion.RESERVADA);
+                                                    break;
+
+                                                case 4:
+                                                    conserje.mostrarHabitacionesEstado(EstadoHabitacion.LIMPIEZA);
+                                                    break;
+
+                                                case 5:
+                                                    conserje.mostrarHabitacionesEstado(EstadoHabitacion.REPARACION);
+                                                    break;
+
+                                                case 0:
+                                                    break;
+                                            }
+
+                                        } while (com != 0);
+
+                                        break;
+
+                                    case 0:
                                         break;
                                 }
                             } while (com != 0);
@@ -145,10 +228,11 @@ public class Main {
                                 System.out.println("2. Realizar CheckOut");
                                 System.out.println("3. Realizar Reserva");
                                 System.out.println("4. Buscar Pasajeros");
-                                System.out.println("5. Buscar habitacione disponible");
-                                System.out.println("6. Crear Usuario");
-                                System.out.println("7. Asignar Permisos");
-                                System.out.println("8. Realizar Back-Up");
+                                System.out.println("5. Mostrar habitaciones por tipo");
+                                System.out.println("6. Mostrar habitaciones por estado");
+                                System.out.println("7. Crear Usuario");
+                                System.out.println("8. Asignar Permisos");
+                                System.out.println("9. Realizar Back-Up");
                                 System.out.println("0. Salir");
 
                                 com = scanner.nextInt();
@@ -177,45 +261,92 @@ public class Main {
 
                                         System.out.println(pasajero.toString());
                                         break;
-                                    //Buscar habitacione disponible
-                                    case 5:
 
+                                    case 5:
                                         do {
                                             System.out.println("Tipos de habitaciones");
                                             System.out.println("1. Individual");
                                             System.out.println("2. Doble");
                                             System.out.println("3. Triple");
                                             System.out.println("4. Queen");
+                                            System.out.println("\n0. Salir");
 
                                             com = scanner.nextInt();
 
                                             switch (com) {
                                                 //INDIVIDUAL
                                                 case 1:
-                                                    System.out.println(admin.buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL));
-
+                                                    admin.mostrarHabitacionesTipo(TipoDeHabitacion.INDIVIDUAL);
                                                     break;
                                                 //Doble
                                                 case 2:
-                                                    System.out.println(admin.buscarHabitacionDisponible(TipoDeHabitacion.DOBLE));
+                                                    admin.mostrarHabitacionesTipo(TipoDeHabitacion.DOBLE);
                                                     break;
                                                 //Triple
                                                 case 3:
-                                                    System.out.println(admin.buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE));
+                                                    admin.mostrarHabitacionesTipo(TipoDeHabitacion.TRIPLE);
                                                     break;
                                                 //Queen
                                                 case 4:
-                                                    System.out.println(admin.buscarHabitacionDisponible(TipoDeHabitacion.QUEEN));
+                                                    admin.mostrarHabitacionesTipo(TipoDeHabitacion.QUEEN);
+                                                    break;
+
+                                                case 0:
                                                     break;
                                             }
 
                                         } while (com != 0);
+
+                                        break;
+
+                                    case 6:
+
+                                        do {
+                                            System.out.println("Estado de la habitacion: ");
+                                            System.out.println("1. Libre");
+                                            System.out.println("2. Ocupada");
+                                            System.out.println("3. Reservada");
+                                            System.out.println("4. En Limpieza");
+                                            System.out.println("5. En Reparacion");
+                                            System.out.println("0. Salir");
+
+
+                                            com = scanner.nextInt();
+
+                                            switch (com) {
+
+                                                case 1:
+                                                    admin.mostrarHabitacionesEstado(EstadoHabitacion.LIBRE);
+                                                    break;
+
+                                                case 2:
+                                                    admin.mostrarHabitacionesEstado(EstadoHabitacion.OCUPADA);
+                                                    break;
+
+                                                case 3:
+                                                    admin.mostrarHabitacionesEstado(EstadoHabitacion.RESERVADA);
+                                                    break;
+
+                                                case 4:
+                                                    admin.mostrarHabitacionesEstado(EstadoHabitacion.LIMPIEZA);
+                                                    break;
+
+                                                case 5:
+                                                    admin.mostrarHabitacionesEstado(EstadoHabitacion.REPARACION);
+                                                    break;
+
+                                                case 0:
+                                                    break;
+                                            }
+
+                                        } while (com != 0);
+
                                         break;
 
                                     //Crear Usuario
-                                    case 6:
+                                    case 7:
                                         do {
-                                            System.out.println("Que tipo de usuario desea crear: ");
+                                            System.out.println("Que tipo de usuario desea crear?: ");
                                             System.out.println("1. Pasajero");
                                             System.out.println("2. Conserje");
                                             System.out.println("3. Administrador");
@@ -235,20 +366,26 @@ public class Main {
                                                 case 3:
                                                     admin.crearAdministrador();
                                                     break;
+
+                                                case 0:
+                                                    break;
                                             }
 
                                         } while (com != 0);
                                         break;
+
                                     //Asignar Permisos
-                                    case 7:
-                                        break;
-                                    //Realizar Back-Up
                                     case 8:
+
+                                        break;
+
+                                    //Realizar Back-Up
+                                    case 9:
                                         admin.guardarListaUsuarioArchivo();
                                         admin.guardarListaHabitacionArchivo();
                                         admin.guardarListaReservaArchivo();
 
-                                        System.out.println("Realizando Back-Up");
+                                        System.out.println("Realizando Back-Up...");
                                         break;
                                 }
                             } while (com != 0);
@@ -258,11 +395,9 @@ public class Main {
                         case 3:
                             do {
                                 System.out.println("Menu Pasajero");
-                                System.out.println("1. Realizar CheckIn");
-                                System.out.println("2. Realizar CheckOut");
-                                System.out.println("3. Realizar Reserva");
-                                System.out.println("4. Buscar Pasajeros");
-                                System.out.println("5. Buscar habitaciones");
+                                System.out.println("1. Realizar reserva remota");
+                                System.out.println("2. Mini Bar");
+                                System.out.println("3. Modificar sus datos");
                                 System.out.println("0. Salir");
 
                                 com = scanner.nextInt();
@@ -273,16 +408,16 @@ public class Main {
                                         break;
 
                                     case 2:
+                                        pasajero.realizarConsumo();
                                         break;
 
                                     case 3:
+                                        pasajero.modificarPasajero(pasajero);
                                         break;
 
-                                    case 4:
+                                    case 0:
                                         break;
 
-                                    case 5:
-                                        break;
                                 }
                             } while (com != 0);
                             break;
@@ -292,24 +427,18 @@ public class Main {
                     }
 
                     break;
-                case 2:
 
+                case 2:
                     System.out.println("Registrarse");
                     Hotel.registroPasajero();
-
-
                     break;
+
                 case 3:
-
-
+                    System.out.println("Saliendo del sistema...");
                     break;
 
                 default:
-
             }
-
         } while (com != 3);
-
-
     }
 }

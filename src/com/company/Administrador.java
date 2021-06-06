@@ -134,4 +134,28 @@ public class Administrador extends Conserje implements Descuento {
         }
     }
 
+
+    public void guardarMiniBarArchivo(){
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("miniBar.json"), Hotel.getMiniBar());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void cargarMiniBarArchivo(){
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            Hotel.setMiniBar(mapper.readValue(
+                    new File("miniBar.json"),
+                    new TypeReference<List<Producto>>() { }));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

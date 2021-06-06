@@ -15,7 +15,7 @@ public class Habitacion {
 
     private LocalDate checkIn;
     private LocalDate checkOut;
-    private String Estado;
+    private EstadoHabitacion Estado;
 
     private List<Producto> consumoList = new ArrayList<>();
 
@@ -23,12 +23,12 @@ public class Habitacion {
     }
 
 
-    public Habitacion(String piso, String numero, TipoDeHabitacion tipo, Double precio, String estado) {
+    public Habitacion(String piso, String numero, TipoDeHabitacion tipo, Double precio, EstadoHabitacion estado) {
         this.piso = piso;
         this.numero = numero;
         this.tipo = tipo;
         this.precio = precio;
-        Estado = estado;
+        this.Estado = estado;
     }
 
     public String getPiso() {
@@ -63,6 +63,14 @@ public class Habitacion {
         this.precio = precio;
     }
 
+    public Pasajero getPasajero() {
+        return pasajero;
+    }
+
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
+    }
+
     public LocalDate getCheckIn() {
         return checkIn;
     }
@@ -79,6 +87,14 @@ public class Habitacion {
         this.checkOut = checkOut;
     }
 
+    public EstadoHabitacion getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(EstadoHabitacion estado) {
+        Estado = estado;
+    }
+
     public List<Producto> getConsumoList() {
         return consumoList;
     }
@@ -87,22 +103,6 @@ public class Habitacion {
         this.consumoList = consumoList;
     }
 
-
-    public Pasajero getPasajero() {
-        return pasajero;
-    }
-
-    public void setPasajero(Pasajero pasajero) {
-        this.pasajero = pasajero;
-    }
-
-    public String getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(String estado) {
-        Estado = estado;
-    }
 
 
     public double calcularPrecioConsumos(){
