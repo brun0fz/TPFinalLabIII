@@ -4,10 +4,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
+import java.net.NetPermission;
 import java.util.List;
 import java.util.Scanner;
 
-public class Administrador extends Conserje implements Descuento {
+public class Administrador extends Conserje{
 
 
     public Administrador() {
@@ -60,7 +61,102 @@ public class Administrador extends Conserje implements Descuento {
 
     }
 
-    public void guardarListaUsuarioArchivo(){
+    public void modificarAdministrador(Administrador administrador) {
+
+        int com;
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+
+            System.out.println("Modificar Conserje");
+
+            System.out.println(administrador);
+
+            System.out.println("1. Nombre");
+            System.out.println("2. Apellido");
+            System.out.println("3. DNI");
+            System.out.println("4. Usuario");
+            System.out.println("5. Contraseña");
+
+            System.out.println("\n0. Salir");
+
+            com = scanner.nextInt();
+
+            scanner.nextLine();
+
+            switch (com) {
+
+                case 1:
+                    System.out.println("Ingrese nuevo nombre: ");
+                    administrador.setNombre(scanner.nextLine());
+                    break;
+
+                case 2:
+                    System.out.println("Ingrese nuevo apellido");
+                    administrador.setApellido(scanner.nextLine());
+                    break;
+
+                case 3:
+                    System.out.println("Ingrese nuevo dni");
+                    administrador.setDni(scanner.nextLine());
+                    break;
+
+                case 4:
+                    System.out.println("Ingrese nuevo usuario");
+                    administrador.setUsuario(scanner.nextLine());
+                    break;
+
+                case 5:
+                    System.out.println("Ingrese nueva contraseña");
+                    administrador.setConstrasena(scanner.nextLine());
+                    break;
+            }
+
+
+        } while (com != 0);
+    }
+
+
+    public Usuario buscarUsuario(String dni){
+        for (Usuario usuario : Hotel.getUsuarioList()){
+            if(usuario.isActivo() && usuario.getDni().equals(dni)){
+                return usuario;
+            }
+        }
+        return null;
+    }
+
+    public void darBajaAlta(Usuario user){
+
+       Scanner scanner = new Scanner(System.in);
+        String com;
+
+        if(user.isActivo()){
+            System.out.println("Desea darlo de baja?: [s/n]");
+            com = scanner.next();
+
+            if(com == "s"){
+                System.out.println("Se ha realizado la baja");
+                user.setActivo(false);
+            }else{
+                System.out.println("No se ha realizado la baja.");
+            }
+
+        }else{
+
+            System.out.println("Desea darlo de alta?: [s/n]");
+            com = scanner.next();
+
+            if(com == "s"){
+                System.out.println("Se ha realizado el alta");
+                user.setActivo(true);
+            }else{
+                System.out.println("No se ha realizado el alta");
+            }
+        }
+    }
+
+    public void guardarListaUsuarioArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
@@ -71,21 +167,21 @@ public class Administrador extends Conserje implements Descuento {
     }
 
 
-    public void cargarListaUsuarioArchivo(){
+    public void cargarListaUsuarioArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
             Hotel.setUsuarioList(mapper.readValue(
                     new File("usuariosList.json"),
-                    new TypeReference<List<Usuario>>() { }));
+                    new TypeReference<List<Usuario>>() {
+                    }));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-
-    public void guardarListaReservaArchivo(){
+    public void guardarListaReservaArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
@@ -96,22 +192,21 @@ public class Administrador extends Conserje implements Descuento {
     }
 
 
-    public void cargarListaReservaArchivo(){
+    public void cargarListaReservaArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
             Hotel.setReservaList(mapper.readValue(
                     new File("reservasList.json"),
-                    new TypeReference<List<Reserva>>() { }));
+                    new TypeReference<List<Reserva>>() {
+                    }));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-
-
-    public void guardarListaHabitacionArchivo(){
+    public void guardarListaHabitacionArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
@@ -122,20 +217,21 @@ public class Administrador extends Conserje implements Descuento {
     }
 
 
-    public void cargarListaHabitacionArchivo(){
+    public void cargarListaHabitacionArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
             Hotel.setHabitacionList(mapper.readValue(
                     new File("habitacionesList.json"),
-                    new TypeReference<List<Habitacion>>() { }));
+                    new TypeReference<List<Habitacion>>() {
+                    }));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public void guardarMiniBarArchivo(){
+    public void guardarMiniBarArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
@@ -146,13 +242,14 @@ public class Administrador extends Conserje implements Descuento {
     }
 
 
-    public void cargarMiniBarArchivo(){
+    public void cargarMiniBarArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
             Hotel.setMiniBar(mapper.readValue(
                     new File("miniBar.json"),
-                    new TypeReference<List<Producto>>() { }));
+                    new TypeReference<List<Producto>>() {
+                    }));
         } catch (IOException e) {
             e.printStackTrace();
         }

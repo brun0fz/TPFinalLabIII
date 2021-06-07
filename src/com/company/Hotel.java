@@ -80,7 +80,7 @@ public  class Hotel {
 
         for (Usuario usuario : usuarioList) {
 
-            if (usuario.getUsuario().equals(user) && usuario.getConstrasena().equals(pass)) {
+            if (usuario.isActivo() && usuario.getUsuario().equals(user) && usuario.getConstrasena().equals(pass)) {
 
                 return usuario;
             }

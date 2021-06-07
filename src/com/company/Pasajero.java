@@ -186,6 +186,94 @@ public class Pasajero extends Usuario {
 
     }
 
+    public void reservaRemota(Pasajero pasajero) {
+
+        Scanner scanner = new Scanner(System.in);
+        Conserje conserje = new Conserje();
+
+        String com = "s";
+
+        Habitacion habitacion = new Habitacion();
+
+        while (com.equals("s")) {
+            int opt;
+
+            do {
+                System.out.println("Reserva\n");
+                System.out.println("Seleccione el Tipo de habitacion");
+                System.out.println("1. Individual");
+                System.out.println("2. Doble");
+                System.out.println("3. Triple");
+                System.out.println("4. Queen");
+
+                opt = scanner.nextInt();
+
+                switch (opt) {
+                    //INDIVIDUAL
+                    case 1:
+                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
+                        break;
+                    //Doble
+                    case 2:
+                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
+                        break;
+                    //Triple
+                    case 3:
+                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
+                        break;
+                    //Queen
+                    case 4:
+                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
+                        break;
+                }
+
+            } while (opt != 0);
+
+            if (habitacion == null) {
+                System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
+                com = scanner.nextLine();
+
+            } else {
+                com = "n";
+
+                System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
+
+                habitacion.setPasajero(pasajero);
+                habitacion.setEstado(EstadoHabitacion.RESERVADA);
+                habitacion.setCheckOut(null);
+
+                int anio, mes, dia;
+
+                System.out.println("Ingrese fecha de entrada: ");
+                System.out.print("Año: ");
+                anio = scanner.nextInt();
+                System.out.print("Mes: ");
+                mes = scanner.nextInt();
+                System.out.print("Dia: ");
+                dia = scanner.nextInt();
+
+                LocalDate fechaIn = LocalDate.of(anio, mes, dia);
+
+                System.out.println("Ingrese fecha de salida: ");
+                System.out.print("Año: ");
+                anio = scanner.nextInt();
+                System.out.print("Mes: ");
+                mes = scanner.nextInt();
+                System.out.print("Dia: ");
+                dia = scanner.nextInt();
+
+                LocalDate fechaOut = LocalDate.of(anio, mes, dia);
+
+                Reserva reserva = new Reserva(habitacion, pasajero, fechaIn, fechaOut, conserje.calcularPrecioDias(habitacion, fechaIn, fechaOut));
+
+                Hotel.getReservaList().add(reserva);
+
+                System.out.println("La reserva se ha realizado exitosamente!");
+            }
+        }
+    }
+
+
 
     @Override
     public String toString() {

@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Organizacion del menu, consumos pasajero.">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Pasajero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Pasajero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Usuario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Administrador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Conserje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Conserje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Habitacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Descuento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Descuento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Pasajero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Pasajero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Usuario.java" afterDir="false" />
@@ -23,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -41,15 +38,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/com/company/Consumo.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Main.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Administrador.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Conserje.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Main.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Descuento.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Producto.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Hotel.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Consumo.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Usuario.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Pasajero.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Hotel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Usuario.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1t5sXJzH54weC0ccEtsGBN2fHvS" />
   <component name="ProjectLevelVcsManager">
@@ -128,6 +125,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3504155" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">

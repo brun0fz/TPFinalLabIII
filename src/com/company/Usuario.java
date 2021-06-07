@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Objects;
+import java.util.Scanner;
 
 public class Usuario {
 
@@ -9,6 +9,8 @@ public class Usuario {
     private String dni;
     private String usuario;
     private String constrasena;
+
+    private boolean activo=true;
 
     public Usuario() {
     }
@@ -62,8 +64,13 @@ public class Usuario {
         this.constrasena = constrasena;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
 
-
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 
     @Override
     public String toString() {

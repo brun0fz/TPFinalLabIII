@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-public class Conserje extends Usuario implements Descuento {
+public class Conserje extends Usuario{
 
 
     public Conserje() {
@@ -50,7 +50,7 @@ public class Conserje extends Usuario implements Descuento {
 
     public Pasajero buscarPasajerosUsuario(String user) {
         for (Usuario usuario : Hotel.getUsuarioList()) {
-            if (usuario instanceof Pasajero && usuario.getUsuario().equals(user)) {
+            if (usuario instanceof Pasajero && usuario.isActivo() && usuario.getUsuario().equals(user)) {
                 return (Pasajero) usuario;
             }
         }
@@ -60,7 +60,7 @@ public class Conserje extends Usuario implements Descuento {
 
     public Pasajero buscarPasajerosNombre(String nombre) {
         for (Usuario usuario : Hotel.getUsuarioList()) {
-            if (usuario instanceof Pasajero && usuario.getNombre().equals(nombre)) {
+            if (usuario instanceof Pasajero && usuario.isActivo() && usuario.getNombre().equals(nombre)) {
                 return (Pasajero) usuario;
             }
         }
@@ -70,7 +70,7 @@ public class Conserje extends Usuario implements Descuento {
 
     public Pasajero buscarPasajerosApellido(String apellido) {
         for (Usuario usuario : Hotel.getUsuarioList()) {
-            if (usuario instanceof Pasajero && usuario.getApellido().equals(apellido)) {
+            if (usuario instanceof Pasajero && usuario.isActivo() && usuario.getApellido().equals(apellido)) {
                 return (Pasajero) usuario;
             }
         }
@@ -80,13 +80,69 @@ public class Conserje extends Usuario implements Descuento {
 
     public Pasajero buscarPasajerosDni(String dni) {
         for (Usuario usuario : Hotel.getUsuarioList()) {
-            if (usuario instanceof Pasajero && usuario.getDni().equals(dni)) {
+            if (usuario instanceof Pasajero && usuario.isActivo() && usuario.getDni().equals(dni)) {
                 return (Pasajero) usuario;
             }
         }
-
         return null;
     }
+
+
+    public void modificarConserje(Conserje conserje) {
+
+        int com;
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+
+            System.out.println("Modificar Conserje");
+
+            System.out.println(conserje);
+
+            System.out.println("1. Nombre");
+            System.out.println("2. Apellido");
+            System.out.println("3. DNI");
+            System.out.println("4. Usuario");
+            System.out.println("5. Contraseña");
+
+            System.out.println("\n0. Salir");
+
+            com = scanner.nextInt();
+
+            scanner.nextLine();
+
+            switch (com) {
+
+                case 1:
+                    System.out.println("Ingrese nuevo nombre: ");
+                    conserje.setNombre(scanner.nextLine());
+                    break;
+
+                case 2:
+                    System.out.println("Ingrese nuevo apellido");
+                    conserje.setApellido(scanner.nextLine());
+                    break;
+
+                case 3:
+                    System.out.println("Ingrese nuevo dni");
+                    conserje.setDni(scanner.nextLine());
+                    break;
+
+                case 4:
+                    System.out.println("Ingrese nuevo usuario");
+                    conserje.setUsuario(scanner.nextLine());
+                    break;
+
+                case 5:
+                    System.out.println("Ingrese nueva contraseña");
+                    conserje.setConstrasena(scanner.nextLine());
+                    break;
+            }
+
+
+        } while (com != 0);
+    }
+
 
     public Pasajero crearPasajero() {
 
@@ -128,7 +184,7 @@ public class Conserje extends Usuario implements Descuento {
 
         Scanner scanner = new Scanner(System.in);
 
-        String com = "s";
+        String com;
 
         Habitacion habitacion = new Habitacion();
         System.out.print("Tiene una reserva? [s/n]: ");
@@ -290,6 +346,7 @@ public class Conserje extends Usuario implements Descuento {
 
     }
 
+
     public void reservar() {
 
         Scanner scanner = new Scanner(System.in);
@@ -383,7 +440,6 @@ public class Conserje extends Usuario implements Descuento {
             }
         }
     }
-
 
     @Override
     public String toString() {

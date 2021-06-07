@@ -18,6 +18,7 @@ public class Main {
         Producto cocaCola = new Producto("Coca Cola", 120);
         Producto agua = new Producto("Agua mineral", 120);
         Producto sandwich = new Producto("Sandwich", 120);
+        ///cargar mas productos
 
         Hotel.getMiniBar().add(cocaCola);
         Hotel.getMiniBar().add(agua);
@@ -33,25 +34,11 @@ public class Main {
         Hotel.getUsuarioList().add(pasajero);
 
 
-        //admin.guardarListaUsuarioArchivo();
-        //admin.guardarListaHabitacionArchivo();
-        //admin.cargarListaUsuarioArchivo();
-
-
-        //admin.guardarListaHabitacionArchivo();
-
-
-        //admin.cargarListaHabitacionArchivo();
-
-
-        // System.out.println(Hotel.getHabitacionList());*/
+        //Falta:
+        //pulir parte grafica
 
 
         menu();
-    }
-    public static void limpiar() {
-        for(int i = 0; i< 24; ++i)
-            System.out.println("");
     }
 
     public static void menu() {
@@ -98,10 +85,8 @@ public class Main {
                         }
 
                     } else {
-
                         System.out.println("No se econtro al usuario.");
                         com = 4;
-
                     }
 
                     switch (com) {
@@ -109,13 +94,14 @@ public class Main {
                         ///menu conserje
                         case 1:
                             do {
-                                System.out.println("Menu Conserje");
+                                System.out.println("Menu Conserje\n");
                                 System.out.println("1. Realizar CheckIn");
                                 System.out.println("2. Realizar CheckOut");
                                 System.out.println("3. Realizar Reserva");
                                 System.out.println("4. Buscar Pasajeros");
                                 System.out.println("5. Mostrar habitaciones por tipo");
                                 System.out.println("6. Mostrar habitaciones por estado");
+                                System.out.println("7. Modificar mis datos");
                                 System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
@@ -138,6 +124,8 @@ public class Main {
                                         break;
                                     //Buscar pasajeros
                                     case 4:
+
+
                                         do {
                                             System.out.println("Buscar pasajeros por:");
                                             System.out.println("1. Nombre");
@@ -153,15 +141,13 @@ public class Main {
                                                 case 1:
                                                     System.out.println("Ingrese el nombre:  ");
                                                     String nombre = scanner.next();
-                                                    pasajero = conserje.buscarPasajerosNombre(nombre);
-                                                    System.out.println(pasajero);
+                                                    System.out.println(conserje.buscarPasajerosNombre(nombre));
                                                     break;
                                                 //Apellido
                                                 case 2:
                                                     System.out.println("Ingrese el apellido:  ");
                                                     String apellido = scanner.next();
-                                                    pasajero = conserje.buscarPasajerosApellido(apellido);
-                                                    System.out.println(pasajero);
+                                                    System.out.println(conserje.buscarPasajerosApellido(apellido));
                                                     break;
                                                 //Dni
                                                 case 3:
@@ -169,16 +155,16 @@ public class Main {
                                                     String dni = scanner.next();
                                                     System.out.println(conserje.buscarPasajerosDni(dni));
                                                     break;
-                                                    //Usuario
+                                                //Usuario
                                                 case 4:
                                                     System.out.println("Ingrese el usuario:  ");
                                                     String usuario = scanner.next();
-                                                    pasajero = conserje.buscarPasajerosUsuario(usuario);
-                                                    System.out.println(pasajero);
+                                                    System.out.println(conserje.buscarPasajerosUsuario(usuario));
                                                     break;
                                             }
 
                                         } while (com != 0);
+
                                         break;
 
                                     case 5:
@@ -263,6 +249,10 @@ public class Main {
 
                                         break;
 
+                                    case 7:
+                                        conserje.modificarConserje(conserje);
+                                        break;
+
                                     case 0:
                                         break;
                                 }
@@ -281,7 +271,8 @@ public class Main {
                                 System.out.println("6. Mostrar habitaciones por estado");
                                 System.out.println("7. Crear Usuario");
                                 System.out.println("8. Asignar Permisos");
-                                System.out.println("9. Realizar Back-Up");
+                                System.out.println("9. Modificar Usuarios");
+                                System.out.println("10. Realizar Back-Up");
                                 System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
@@ -301,14 +292,47 @@ public class Main {
                                         break;
                                     //Buscar Pasajeros
                                     case 4:
-                                        String dni;
 
-                                        System.out.println("Ingrese dni");
-                                        dni = scanner.nextLine();
+                                        do {
+                                            System.out.println("Buscar pasajeros por:");
+                                            System.out.println("1. Nombre");
+                                            System.out.println("2. Apellido");
+                                            System.out.println("3. Dni");
+                                            System.out.println("4. Usuario");
+                                            System.out.println("\n0. Salir");
 
-                                        pasajero = admin.buscarPasajerosDni(dni);
+                                            com = scanner.nextInt();
 
-                                        System.out.println(pasajero.toString());
+                                            switch (com) {
+                                                //Nombre
+                                                case 1:
+                                                    System.out.println("Ingrese el nombre:  ");
+                                                    String nombre = scanner.next();
+                                                    System.out.println(admin.buscarPasajerosNombre(nombre));
+                                                    break;
+                                                //Apellido
+                                                case 2:
+                                                    System.out.println("Ingrese el apellido:  ");
+                                                    String apellido = scanner.next();
+                                                    System.out.println(admin.buscarPasajerosApellido(apellido));
+                                                    break;
+                                                //Dni
+                                                case 3:
+                                                    System.out.print("Ingrese DNI: ");
+                                                    String dni = scanner.next();
+                                                    System.out.println(admin.buscarPasajerosDni(dni));
+                                                    break;
+                                                //Usuario
+                                                case 4:
+                                                    System.out.println("Ingrese el usuario:  ");
+                                                    String usuario = scanner.next();
+                                                    System.out.println(admin.buscarPasajerosUsuario(usuario));
+                                                    break;
+                                            }
+
+                                        } while (com != 0);
+
+
                                         break;
 
                                     case 5:
@@ -425,17 +449,65 @@ public class Main {
 
                                     //Asignar Permisos
                                     case 8:
+                                        break;
+
+                                    //Modificar usuarios
+                                    case 9:
+
+                                        do {
+
+                                            System.out.println("Modificar usuarios");
+                                            System.out.println("1. Modificar");
+                                            System.out.println("2. Dar de baja/alta");
+                                            System.out.println("0. Salir");
+
+                                            switch (com) {
+
+                                                case 1:
+                                                    String dni = scanner.next();
+                                                    Usuario user1 = admin.buscarUsuario(dni);
+
+                                                    if (user != null) {
+                                                        if (user instanceof Conserje) {
+                                                            admin.modificarConserje((Conserje) user1);
+
+                                                        } else if (user instanceof Administrador) {
+                                                            admin.modificarAdministrador((Administrador) user1);
+
+                                                        } else {
+                                                            pasajero.modificarPasajero((Pasajero) user1);
+                                                        }
+
+                                                    } else {
+                                                        System.out.println("No se econtro el usuario.");
+                                                    }
+
+                                                    break;
+
+                                                case 2:
+                                                    String dni1 = scanner.next();
+                                                    admin.darBajaAlta(admin.buscarUsuario(dni1));
+                                                    break;
+
+                                                case 0:
+                                                    break;
+                                            }
+
+                                        } while (com != 0);
 
                                         break;
 
                                     //Realizar Back-Up
-                                    case 9:
+                                    case 10:
                                         admin.guardarListaUsuarioArchivo();
                                         admin.guardarListaHabitacionArchivo();
                                         admin.guardarListaReservaArchivo();
+                                        admin.guardarMiniBarArchivo();
 
                                         System.out.println("Realizando Back-Up...");
                                         break;
+
+                                    default:
                                 }
                             } while (com != 0);
                             break;
@@ -454,6 +526,7 @@ public class Main {
                                 switch (com) {
 
                                     case 1:
+                                        pasajero.reservaRemota(pasajero);
                                         break;
 
                                     case 2:
