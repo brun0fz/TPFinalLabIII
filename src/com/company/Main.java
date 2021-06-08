@@ -1,47 +1,106 @@
 package com.company;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import java.rmi.NotBoundException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
 
-        Administrador admin = new Administrador("Bruno", "Fabrizio", "39123123", "Bruno", "1234");
+        Administrador admin = new Administrador("Administrador","Bruno", "Fabrizio", "40579965", "brunofz", "1759");
+        Administrador admin2 = new Administrador("Administrador","Danilo", "Suarez", "33102857", "danilomdq", "2481");
 
-        Conserje conserje = new Conserje("dan", "sua", "33", "123", "45");
-        Pasajero pasajero = new Pasajero("Danilo", "Suarez", "33102857", "danilo", "1234", "Funes 2461", "2236688139", "danilomdq@gmail.com");
+        Conserje conserje = new Conserje("Conserje","Ezequiel", "Rage", "27123123", "eze", "1234");
+        Pasajero pasajero = new Pasajero("Pasajero","Carlos", "Miranda", "32123123", "charly", "1234", "Funes 2461", "2236688139", "charly@gmail.com");
 
-        Habitacion habi = new Habitacion("21", "12", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
-        Habitacion habi1 = new Habitacion("12", "115", TipoDeHabitacion.TRIPLE, 333.45, EstadoHabitacion.LIBRE);
-        Habitacion habi2 = new Habitacion("9", "3", TipoDeHabitacion.QUEEN, 333.45, EstadoHabitacion.LIBRE);
+        Habitacion habi = new Habitacion("1", "1", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
+        Habitacion habi1 = new Habitacion("1", "2", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
+        Habitacion habi2 = new Habitacion("1", "3", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
+        Habitacion habi3 = new Habitacion("1", "4", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
+        Habitacion habi13 = new Habitacion("2", "5", TipoDeHabitacion.TRIPLE, 900.3, EstadoHabitacion.LIBRE);
+        Habitacion habi14 = new Habitacion("2", "6", TipoDeHabitacion.TRIPLE, 900.3, EstadoHabitacion.LIBRE);
+        Habitacion habi15 = new Habitacion("2", "7", TipoDeHabitacion.TRIPLE, 900.3, EstadoHabitacion.LIBRE);
+        Habitacion habi16 = new Habitacion("2", "8", TipoDeHabitacion.TRIPLE, 900.3, EstadoHabitacion.LIBRE);
+        Habitacion habi27 = new Habitacion("3", "9", TipoDeHabitacion.QUEEN, 650.7, EstadoHabitacion.LIBRE);
+        Habitacion habi24 = new Habitacion("3", "10", TipoDeHabitacion.QUEEN, 650.7, EstadoHabitacion.LIBRE);
+        Habitacion habi23 = new Habitacion("3", "11", TipoDeHabitacion.QUEEN, 650.7, EstadoHabitacion.LIBRE);
+        Habitacion habi21 = new Habitacion("3", "12", TipoDeHabitacion.QUEEN, 650.7, EstadoHabitacion.LIBRE);
+        Habitacion habi28 = new Habitacion("3", "13", TipoDeHabitacion.QUEEN, 650.7, EstadoHabitacion.LIBRE);
+        Habitacion habi29 = new Habitacion("4", "14", TipoDeHabitacion.DOBLE, 550.9, EstadoHabitacion.LIBRE);
+        Habitacion habi30 = new Habitacion("4", "15", TipoDeHabitacion.DOBLE, 550.9, EstadoHabitacion.LIBRE);
+        Habitacion habi31 = new Habitacion("4", "16", TipoDeHabitacion.DOBLE, 550.9, EstadoHabitacion.LIBRE);
+        Habitacion habi33 = new Habitacion("4", "17", TipoDeHabitacion.DOBLE, 550.9, EstadoHabitacion.LIBRE);
+        Hotel.getHabitacionList().add(habi);
+        Hotel.getHabitacionList().add(habi1);
+        Hotel.getHabitacionList().add(habi2);
+        Hotel.getHabitacionList().add(habi3);
+        Hotel.getHabitacionList().add(habi13);
+        Hotel.getHabitacionList().add(habi14);
+        Hotel.getHabitacionList().add(habi15);
+        Hotel.getHabitacionList().add(habi16);
+        Hotel.getHabitacionList().add(habi27);
+        Hotel.getHabitacionList().add(habi24);
+        Hotel.getHabitacionList().add(habi23);
+        Hotel.getHabitacionList().add(habi21);
+        Hotel.getHabitacionList().add(habi28);
+        Hotel.getHabitacionList().add(habi29);
+        Hotel.getHabitacionList().add(habi30);
+        Hotel.getHabitacionList().add(habi31);
+        Hotel.getHabitacionList().add(habi33);
 
-        Producto cocaCola = new Producto("Coca Cola", 120);
-        Producto agua = new Producto("Agua mineral", 120);
-        Producto sandwich = new Producto("Sandwich", 120);
+
+
+
+        Producto cocaCola = new Producto(NombreProducto.COCA_COLA, 120);
+        Producto agua = new Producto(NombreProducto.AGUA, 120);
+        Producto sandwich = new Producto(NombreProducto.SANDWICH, 120);
+        Producto oreo = new Producto(NombreProducto.OREO, 80);
+        Producto havanna = new Producto(NombreProducto.HAVANNA, 98);
+        Producto cerveza = new Producto(NombreProducto.CERVEZA, 135);
+        Producto sonrisas = new Producto(NombreProducto.SONRISAS, 118);
+        Producto sprite = new Producto(NombreProducto.SPRITE, 135);
+        Producto soda = new Producto(NombreProducto.SODA, 135);
+        Producto whisky = new Producto(NombreProducto.WHISKY, 135);
         ///cargar mas productos
 
         Hotel.getMiniBar().add(cocaCola);
         Hotel.getMiniBar().add(agua);
         Hotel.getMiniBar().add(sandwich);
+        Hotel.getMiniBar().add(oreo);
+        Hotel.getMiniBar().add(havanna);
+        Hotel.getMiniBar().add(cerveza);
+        Hotel.getMiniBar().add(sonrisas);
+        Hotel.getMiniBar().add(sprite);
+        Hotel.getMiniBar().add(soda);
+        Hotel.getMiniBar().add(whisky);
+
+
 
         Hotel.getUsuarioList().add(admin);
+        Hotel.getUsuarioList().add(admin2);
 
-        Hotel.getHabitacionList().add(habi);
-        Hotel.getHabitacionList().add(habi1);
-        Hotel.getHabitacionList().add(habi2);
+
         Hotel.getUsuarioList().add(conserje);
 
         Hotel.getUsuarioList().add(pasajero);
-
-
+        admin.guardarListaUsuarioArchivo();
+        admin.guardarMiniBarArchivo();
+        admin.guardarListaHabitacionArchivo();
         //Falta:
-        //pulir parte grafica
 
 
-        menu();
+        admin.cargarListaUsuarioArchivo();
+        admin.cargarListaHabitacionArchivo();
+      //  admin.cargarListaReservaArchivo();
+        admin.cargarMiniBarArchivo();
+
+        //System.out.println(Hotel.getUsuarioList().get(0).getClass());
+        sistemaHoteleria();
     }
 
-    public static void menu() {
+    public static void sistemaHoteleria() throws JsonProcessingException {
 
         Scanner scanner = new Scanner(System.in);
         int com;

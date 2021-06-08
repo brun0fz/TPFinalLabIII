@@ -111,7 +111,7 @@ public  class Hotel {
             System.out.print("Ingrese mail: ");
             String mail = scanner.nextLine();
 
-            Pasajero nuevoPasajero = new Pasajero(nombre, apellido, dni, usuario, contrasena, direccion, telefono, mail);
+            Pasajero nuevoPasajero = new Pasajero("Pasajero",nombre, apellido, dni, usuario, contrasena, direccion, telefono, mail);
 
             usuarioList.add(nuevoPasajero);
 

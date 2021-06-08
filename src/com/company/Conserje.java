@@ -1,8 +1,12 @@
 package com.company;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
+
 
 public class Conserje extends Usuario{
 
@@ -10,9 +14,10 @@ public class Conserje extends Usuario{
     public Conserje() {
     }
 
-    public Conserje(String nombre, String apellido, String dni, String usuario, String constrasena) {
-        super(nombre, apellido, dni, usuario, constrasena);
+    public Conserje( String userType, String nombre, String apellido, String dni, String usuario, String constrasena) {
+        super(userType, nombre, apellido, dni, usuario, constrasena);
     }
+
 
     public Habitacion buscarHabitacionDisponible(TipoDeHabitacion tipo) {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
@@ -165,7 +170,7 @@ public class Conserje extends Usuario{
         System.out.print("Ingrese mail: ");
         String mail = scanner.nextLine();
 
-        Pasajero nuevoPasajero = new Pasajero(nombre, apellido, dni, usuario, contrasena, direccion, telefono, mail);
+        Pasajero nuevoPasajero = new Pasajero("Pasajero",nombre, apellido, dni, usuario, contrasena, direccion, telefono, mail);
 
         return nuevoPasajero;
     }

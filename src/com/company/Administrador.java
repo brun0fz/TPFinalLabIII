@@ -1,21 +1,31 @@
 package com.company;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
+import com.fasterxml.jackson.databind.jsontype.NamedType;
+import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
 
 import java.io.*;
 import java.net.NetPermission;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Administrador extends Conserje{
 
+public class Administrador extends Conserje {
+private String hola=null;
 
     public Administrador() {
     }
 
-    public Administrador(String nombre, String apellido, String dni, String usuario, String constrasena) {
-        super(nombre, apellido, dni, usuario, constrasena);
+    public Administrador(String userType, String nombre, String apellido, String dni, String usuario, String constrasena) {
+        super(userType, nombre, apellido, dni, usuario, constrasena);
     }
 
     public void crearConserje() {
@@ -34,7 +44,7 @@ public class Administrador extends Conserje{
         String contrasena = scanner.nextLine();
 
 
-        Conserje nuevoConserje = new Conserje(nombre, apellido, dni, usuario, contrasena);
+        Conserje nuevoConserje = new Conserje("Conserje", nombre, apellido, dni, usuario, contrasena);
 
         Hotel.getUsuarioList().add(nuevoConserje);
     }
@@ -55,7 +65,7 @@ public class Administrador extends Conserje{
         String contrasena = scanner.nextLine();
 
 
-        Administrador nuevoAdministrador = new Administrador(nombre, apellido, dni, usuario, contrasena);
+        Administrador nuevoAdministrador = new Administrador("Administrador", nombre, apellido, dni, usuario, contrasena);
 
         Hotel.getUsuarioList().add(nuevoAdministrador);
 
@@ -68,7 +78,7 @@ public class Administrador extends Conserje{
 
         do {
 
-            System.out.println("Modificar Conserje");
+            System.out.println("Modificar Administrador");
 
             System.out.println(administrador);
 
@@ -117,48 +127,49 @@ public class Administrador extends Conserje{
     }
 
 
-    public Usuario buscarUsuario(String dni){
-        for (Usuario usuario : Hotel.getUsuarioList()){
-            if(usuario.isActivo() && usuario.getDni().equals(dni)){
+    public Usuario buscarUsuario(String dni) {
+        for (Usuario usuario : Hotel.getUsuarioList()) {
+            if (usuario.isActivo() && usuario.getDni().equals(dni)) {
                 return usuario;
             }
         }
         return null;
     }
 
-    public void darBajaAlta(Usuario user){
+    public void darBajaAlta(Usuario user) {
 
-       Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String com;
 
-        if(user.isActivo()){
+        if (user.isActivo()) {
             System.out.println("Desea darlo de baja?: [s/n]");
             com = scanner.next();
 
-            if(com == "s"){
+            if (com == "s") {
                 System.out.println("Se ha realizado la baja");
                 user.setActivo(false);
-            }else{
+            } else {
                 System.out.println("No se ha realizado la baja.");
             }
 
-        }else{
+        } else {
 
             System.out.println("Desea darlo de alta?: [s/n]");
             com = scanner.next();
 
-            if(com == "s"){
+            if (com == "s") {
                 System.out.println("Se ha realizado el alta");
                 user.setActivo(true);
-            }else{
+            } else {
                 System.out.println("No se ha realizado el alta");
             }
         }
     }
 
     public void guardarListaUsuarioArchivo() {
-        ObjectMapper mapper = new ObjectMapper();
 
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("usuariosList.json"), Hotel.getUsuarioList());
         } catch (IOException e) {
@@ -167,9 +178,9 @@ public class Administrador extends Conserje{
     }
 
 
-    public void cargarListaUsuarioArchivo() {
+   /* public void cargarListaUsuarioArchivo() {
         ObjectMapper mapper = new ObjectMapper();
-
+        mapper.enableDefaultTyping();
         try {
             Hotel.setUsuarioList(mapper.readValue(
                     new File("usuariosList.json"),
@@ -178,7 +189,19 @@ public class Administrador extends Conserje{
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
+   public void cargarListaUsuarioArchivo() {
+       ObjectMapper mapper = new ObjectMapper();
+       mapper.enableDefaultTyping();
+       JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class,Usuario.class);
+       try {
+           List<Usuario> usuarioList = mapper.readValue(new File("usuariosList.json"),javaType );
+           Hotel.setUsuarioList(usuarioList);
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+
+   }
 
 
     public void guardarListaReservaArchivo() {

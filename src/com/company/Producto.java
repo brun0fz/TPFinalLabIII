@@ -2,22 +2,22 @@ package com.company;
 
 public class Producto {
 
-    private String nombre;
+    private NombreProducto nombre;
     private double precio;
 
     public Producto() {
     }
 
-    public Producto(String nombre, double precio) {
+    public Producto(NombreProducto nombre, double precio) {
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    public String getNombre() {
+    public NombreProducto getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(NombreProducto nombre) {
         this.nombre = nombre;
     }
 

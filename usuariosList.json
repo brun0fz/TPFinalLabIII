@@ -1,13 +1,33 @@
-[ {
+[ [ "com.company.Administrador", {
   "nombre" : "Bruno",
   "apellido" : "Fabrizio",
-  "dni" : "39123123",
-  "usuario" : "Bruno",
-  "constrasena" : "1234"
-}, {
-  "nombre" : "dan",
-  "apellido" : "sua",
-  "dni" : "33",
-  "usuario" : "123",
-  "constrasena" : "45"
-} ]
+  "dni" : "40579965",
+  "usuario" : "brunofz",
+  "constrasena" : "1759",
+  "activo" : true
+} ], [ "com.company.Administrador", {
+  "nombre" : "Danilo",
+  "apellido" : "Suarez",
+  "dni" : "33102857",
+  "usuario" : "danilomdq",
+  "constrasena" : "2481",
+  "activo" : true
+} ], [ "com.company.Conserje", {
+  "nombre" : "Ezequiel",
+  "apellido" : "Rage",
+  "dni" : "27123123",
+  "usuario" : "eze",
+  "constrasena" : "1234",
+  "activo" : true
+} ], [ "com.company.Pasajero", {
+  "nombre" : "Carlos",
+  "apellido" : "Miranda",
+  "dni" : "32123123",
+  "usuario" : "charly",
+  "constrasena" : "1234",
+  "activo" : true,
+  "direccion" : "Funes 2461",
+  "telefono" : "2236688139",
+  "email" : "charly@gmail.com",
+  "reserva" : null
+} ] ]

@@ -1,0 +1,31 @@
+[ {
+  "nombre" : "COCA_COLA",
+  "precio" : 120.0
+}, {
+  "nombre" : "AGUA",
+  "precio" : 120.0
+}, {
+  "nombre" : "SANDWICH",
+  "precio" : 120.0
+}, {
+  "nombre" : "OREO",
+  "precio" : 80.0
+}, {
+  "nombre" : "HAVANNA",
+  "precio" : 98.0
+}, {
+  "nombre" : "CERVEZA",
+  "precio" : 135.0
+}, {
+  "nombre" : "SONRISAS",
+  "precio" : 118.0
+}, {
+  "nombre" : "SPRITE",
+  "precio" : 135.0
+}, {
+  "nombre" : "SODA",
+  "precio" : 135.0
+}, {
+  "nombre" : "WHISKY",
+  "precio" : 135.0
+} ]
