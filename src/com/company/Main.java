@@ -147,6 +147,8 @@ public class Main {
                         ///menu conserje
                         case 1:
                             do {
+                                int com2;
+
                                 System.out.println("Menu Conserje\n");
                                 System.out.println("1. Realizar CheckIn");
                                 System.out.println("2. Realizar CheckOut");
@@ -187,9 +189,9 @@ public class Main {
                                             System.out.println("4. Usuario");
                                             System.out.println("\n0. Salir");
 
-                                            com = scanner.nextInt();
+                                            com2 = scanner.nextInt();
 
-                                            switch (com) {
+                                            switch (com2) {
                                                 //Nombre
                                                 case 1:
                                                     System.out.println("Ingrese el nombre:  ");
@@ -216,7 +218,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
+                                        } while (com2 != 0);
 
                                         break;
 
@@ -230,9 +232,9 @@ public class Main {
                                             System.out.println("4. Queen");
                                             System.out.println("\n0. Salir");
 
-                                            com = scanner.nextInt();
+                                            com2 = scanner.nextInt();
 
-                                            switch (com) {
+                                            switch (com2) {
                                                 //INDIVIDUAL
                                                 case 1:
                                                     conserje.mostrarHabitacionesTipo(TipoDeHabitacion.INDIVIDUAL);
@@ -254,7 +256,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
+                                        } while (com2 != 0);
 
                                         break;
 
@@ -270,9 +272,9 @@ public class Main {
                                             System.out.println("\n0. Salir");
 
 
-                                            com = scanner.nextInt();
+                                            com2 = scanner.nextInt();
 
-                                            switch (com) {
+                                            switch (com2) {
 
                                                 case 1:
                                                     conserje.mostrarHabitacionesEstado(EstadoHabitacion.LIBRE);
@@ -298,7 +300,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
+                                        } while (com2 != 0);
 
                                         break;
 
@@ -315,6 +317,8 @@ public class Main {
                         //Menu admin
                         case 2:
                             do {
+                                int com1;
+
                                 System.out.println("Menu Administrador");
                                 System.out.println("1. Realizar CheckIn");
                                 System.out.println("2. Realizar CheckOut");
@@ -354,9 +358,9 @@ public class Main {
                                             System.out.println("4. Usuario");
                                             System.out.println("\n0. Salir");
 
-                                            com = scanner.nextInt();
+                                            com1 = scanner.nextInt();
 
-                                            switch (com) {
+                                            switch (com1) {
                                                 //Nombre
                                                 case 1:
                                                     System.out.println("Ingrese el nombre:  ");
@@ -383,9 +387,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
-
-
+                                        } while (com1 != 0);
                                         break;
 
                                     case 5:
@@ -397,9 +399,9 @@ public class Main {
                                             System.out.println("4. Queen");
                                             System.out.println("\n0. Salir");
 
-                                            com = scanner.nextInt();
+                                            com1 = scanner.nextInt();
 
-                                            switch (com) {
+                                            switch (com1) {
                                                 //INDIVIDUAL
                                                 case 1:
                                                     admin.mostrarHabitacionesTipo(TipoDeHabitacion.INDIVIDUAL);
@@ -421,7 +423,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
+                                        } while (com1 != 0);
 
                                         break;
 
@@ -437,9 +439,9 @@ public class Main {
                                             System.out.println("0. Salir");
 
 
-                                            com = scanner.nextInt();
+                                            com1 = scanner.nextInt();
 
-                                            switch (com) {
+                                            switch (com1) {
 
                                                 case 1:
                                                     admin.mostrarHabitacionesEstado(EstadoHabitacion.LIBRE);
@@ -465,7 +467,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
+                                        } while (com1 != 0);
 
                                         break;
 
@@ -478,8 +480,8 @@ public class Main {
                                             System.out.println("3. Administrador");
                                             System.out.println("0. Salir");
 
-                                            com = scanner.nextInt();
-                                            switch (com) {
+                                            com1 = scanner.nextInt();
+                                            switch (com1) {
                                                 //Pasajer
                                                 case 1:
                                                     admin.crearPasajero();
@@ -497,7 +499,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
+                                        } while (com1 != 0);
                                         break;
 
                                     //Asignar Permisos
@@ -514,7 +516,9 @@ public class Main {
                                             System.out.println("2. Dar de baja/alta");
                                             System.out.println("0. Salir");
 
-                                            switch (com) {
+                                            com1= scanner.nextInt();
+
+                                            switch (com1) {
 
                                                 case 1:
                                                     String dni = scanner.next();
@@ -546,7 +550,7 @@ public class Main {
                                                     break;
                                             }
 
-                                        } while (com != 0);
+                                        } while (com1 != 0);
 
                                         break;
 
