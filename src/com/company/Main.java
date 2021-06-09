@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Administrador admin = new Administrador("Bruno", "Fabrizio", "40579965", "brunofz", "1759");
-        /*Administrador admin2 = new Administrador("Danilo", "Suarez", "33102857", "danilomdq", "2481");
+        /* Administrador admin2 = new Administrador("Danilo", "Suarez", "33102857", "danilomdq", "2481");
 
         Conserje conserje = new Conserje("Ezequiel", "Rage", "27123123", "eze", "1234");
         Pasajero pasajero = new Pasajero("Carlos", "Miranda", "32123123", "charly", "1234", "Funes 2461", "2236688139", "charly@gmail.com");
@@ -82,9 +82,9 @@ public class Main {
         admin.guardarListaUsuarioArchivo();
         admin.guardarMiniBarArchivo();
         admin.guardarListaHabitacionArchivo();
-*/
 
 
+         */
         admin.cargarListaUsuarioArchivo();
         admin.cargarListaHabitacionArchivo();
         //admin.cargarListaReservaArchivo();
@@ -516,7 +516,7 @@ public class Main {
                                             System.out.println("2. Dar de baja/alta");
                                             System.out.println("0. Salir");
 
-                                            com1= scanner.nextInt();
+                                            com1 = scanner.nextInt();
 
                                             switch (com1) {
 
