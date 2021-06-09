@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Solucionado el inicio de sesion">
+    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Solucionado el inicio de sesion y menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +291,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623225973011</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Solucionado el inicio de sesion y menu">
+      <created>1623227303153</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1623227303153</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Solucionado el inicio de sesion y menu">
+      <created>1623227367388</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1623227367388</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,6 +330,7 @@
     <MESSAGE value="Modificacion de usuarios Admin, baja y alta." />
     <MESSAGE value="solucionamos el manejo de archivos y demas" />
     <MESSAGE value="Solucionado el inicio de sesion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solucionado el inicio de sesion" />
+    <MESSAGE value="Solucionado el inicio de sesion y menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solucionado el inicio de sesion y menu" />
   </component>
 </project>
