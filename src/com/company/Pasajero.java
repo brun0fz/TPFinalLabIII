@@ -18,8 +18,8 @@ public class Pasajero extends Usuario {
     }
 
 
-    public Pasajero( String userType, String nombre, String apellido, String dni, String usuario, String constrasena, String direccion, String telefono, String email) {
-        super(userType, nombre, apellido, dni, usuario, constrasena);
+    public Pasajero(String nombre, String apellido, String dni, String usuario, String constrasena, String direccion, String telefono, String email) {
+        super(nombre, apellido, dni, usuario, constrasena);
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;

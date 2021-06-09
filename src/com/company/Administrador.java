@@ -19,13 +19,12 @@ import java.util.Scanner;
 
 
 public class Administrador extends Conserje {
-private String hola=null;
 
     public Administrador() {
     }
 
-    public Administrador(String userType, String nombre, String apellido, String dni, String usuario, String constrasena) {
-        super(userType, nombre, apellido, dni, usuario, constrasena);
+    public Administrador(String nombre, String apellido, String dni, String usuario, String constrasena) {
+        super(nombre, apellido, dni, usuario, constrasena);
     }
 
     public void crearConserje() {
@@ -44,7 +43,7 @@ private String hola=null;
         String contrasena = scanner.nextLine();
 
 
-        Conserje nuevoConserje = new Conserje("Conserje", nombre, apellido, dni, usuario, contrasena);
+        Conserje nuevoConserje = new Conserje(nombre, apellido, dni, usuario, contrasena);
 
         Hotel.getUsuarioList().add(nuevoConserje);
     }
@@ -65,7 +64,7 @@ private String hola=null;
         String contrasena = scanner.nextLine();
 
 
-        Administrador nuevoAdministrador = new Administrador("Administrador", nombre, apellido, dni, usuario, contrasena);
+        Administrador nuevoAdministrador = new Administrador(nombre, apellido, dni, usuario, contrasena);
 
         Hotel.getUsuarioList().add(nuevoAdministrador);
 

@@ -2,18 +2,19 @@ package com.company;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import java.awt.*;
 import java.rmi.NotBoundException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args){
 
-        Administrador admin = new Administrador("Administrador","Bruno", "Fabrizio", "40579965", "brunofz", "1759");
-        Administrador admin2 = new Administrador("Administrador","Danilo", "Suarez", "33102857", "danilomdq", "2481");
+        Administrador admin = new Administrador("Bruno", "Fabrizio", "40579965", "brunofz", "1759");
+        /*Administrador admin2 = new Administrador("Danilo", "Suarez", "33102857", "danilomdq", "2481");
 
-        Conserje conserje = new Conserje("Conserje","Ezequiel", "Rage", "27123123", "eze", "1234");
-        Pasajero pasajero = new Pasajero("Pasajero","Carlos", "Miranda", "32123123", "charly", "1234", "Funes 2461", "2236688139", "charly@gmail.com");
+        Conserje conserje = new Conserje("Ezequiel", "Rage", "27123123", "eze", "1234");
+        Pasajero pasajero = new Pasajero("Carlos", "Miranda", "32123123", "charly", "1234", "Funes 2461", "2236688139", "charly@gmail.com");
 
         Habitacion habi = new Habitacion("1", "1", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
         Habitacion habi1 = new Habitacion("1", "2", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
@@ -50,9 +51,6 @@ public class Main {
         Hotel.getHabitacionList().add(habi31);
         Hotel.getHabitacionList().add(habi33);
 
-
-
-
         Producto cocaCola = new Producto(NombreProducto.COCA_COLA, 120);
         Producto agua = new Producto(NombreProducto.AGUA, 120);
         Producto sandwich = new Producto(NombreProducto.SANDWICH, 120);
@@ -63,8 +61,6 @@ public class Main {
         Producto sprite = new Producto(NombreProducto.SPRITE, 135);
         Producto soda = new Producto(NombreProducto.SODA, 135);
         Producto whisky = new Producto(NombreProducto.WHISKY, 135);
-        ///cargar mas productos
-
         Hotel.getMiniBar().add(cocaCola);
         Hotel.getMiniBar().add(agua);
         Hotel.getMiniBar().add(sandwich);
@@ -77,30 +73,28 @@ public class Main {
         Hotel.getMiniBar().add(whisky);
 
 
-
         Hotel.getUsuarioList().add(admin);
         Hotel.getUsuarioList().add(admin2);
-
-
         Hotel.getUsuarioList().add(conserje);
-
         Hotel.getUsuarioList().add(pasajero);
+
+
         admin.guardarListaUsuarioArchivo();
         admin.guardarMiniBarArchivo();
         admin.guardarListaHabitacionArchivo();
-        //Falta:
+*/
 
 
         admin.cargarListaUsuarioArchivo();
         admin.cargarListaHabitacionArchivo();
-      //  admin.cargarListaReservaArchivo();
+        //admin.cargarListaReservaArchivo();
         admin.cargarMiniBarArchivo();
 
-        //System.out.println(Hotel.getUsuarioList().get(0).getClass());
+
         sistemaHoteleria();
     }
 
-    public static void sistemaHoteleria() throws JsonProcessingException {
+    public static void sistemaHoteleria() {
 
         Scanner scanner = new Scanner(System.in);
         int com;
@@ -130,11 +124,11 @@ public class Main {
 
 
                     if (user != null) {
-                        if (user instanceof Conserje) {
+                        if (user.getClass().equals(Conserje.class)) {
                             com = 1;
                             conserje = (Conserje) user;
 
-                        } else if (user instanceof Administrador) {
+                        } else if (user.getClass().equals(Administrador.class)) {
                             com = 2;
                             admin = (Administrador) user;
 

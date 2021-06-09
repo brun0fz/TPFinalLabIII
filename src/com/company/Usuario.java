@@ -1,8 +1,8 @@
 package com.company;
 
 import com.fasterxml.jackson.annotation.*;
-@JsonIgnoreProperties
 
+@JsonIgnoreProperties
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Conserje.class, name = "com.company.Conserje"),
@@ -10,11 +10,8 @@ import com.fasterxml.jackson.annotation.*;
         @JsonSubTypes.Type(value = Administrador.class, name = "com.company.Administrador")
 })
 
-
-
 public abstract class Usuario {
 
-    private String userType;
     private String nombre;
     private String apellido;
     private String dni;
@@ -27,8 +24,7 @@ public abstract class Usuario {
     }
 
 
-    public Usuario(String userType, String nombre, String apellido, String dni, String usuario, String constrasena) {
-        this.userType = userType;
+    public Usuario(String nombre, String apellido, String dni, String usuario, String constrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
