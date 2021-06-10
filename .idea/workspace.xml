@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Ssolucion en varios metodos del administrador y en menu admin">
+    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Ssolucion en varias cosas mas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Conserje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Conserje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Pasajero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Pasajero.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623289407514</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Ssolucion en varias cosas mas">
+      <created>1623290925109</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1623290925109</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -358,6 +360,7 @@
     <MESSAGE value="Solucionado el inicio de sesion" />
     <MESSAGE value="Solucionado el inicio de sesion y menu" />
     <MESSAGE value="Ssolucion en varios metodos del administrador y en menu admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ssolucion en varios metodos del administrador y en menu admin" />
+    <MESSAGE value="Ssolucion en varias cosas mas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ssolucion en varias cosas mas" />
   </component>
 </project>
