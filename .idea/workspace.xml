@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Solucionado el inicio de sesion y menu">
+      <change afterPath="$PROJECT_DIR$/reservasList.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Conserje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Conserje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Habitacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +43,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/com/company/Conserje.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Consumo.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Administrador.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Pasajero.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Hotel.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Usuario.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/company/Descuento.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Conserje.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Descuento.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/company/Producto.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Hotel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Consumo.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Usuario.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/company/Pasajero.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1t5sXJzH54weC0ccEtsGBN2fHvS" />
   <component name="ProjectLevelVcsManager">

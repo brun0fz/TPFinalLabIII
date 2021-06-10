@@ -485,6 +485,8 @@ public class Main {
                                                 //Pasajer
                                                 case 1:
                                                     admin.crearPasajero();
+                                                    System.out.println("El nuevo pasajero fue creado con exito ");
+                                                    System.out.println("\n\n");
                                                     break;
                                                 //Conserje
                                                 case 2:
@@ -521,14 +523,15 @@ public class Main {
                                             switch (com1) {
 
                                                 case 1:
+                                                    System.out.println("Ingrese el dni del usuario: ");
                                                     String dni = scanner.next();
                                                     Usuario user1 = admin.buscarUsuario(dni);
 
-                                                    if (user != null) {
-                                                        if (user instanceof Conserje) {
+                                                    if (user1 != null) {
+                                                        if (user1.getClass().equals(Conserje.class)) {
                                                             admin.modificarConserje((Conserje) user1);
 
-                                                        } else if (user instanceof Administrador) {
+                                                        } else if (user1.getClass().equals(Administrador.class)) {
                                                             admin.modificarAdministrador((Administrador) user1);
 
                                                         } else {

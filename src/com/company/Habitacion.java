@@ -118,7 +118,7 @@ public class Habitacion {
 
     @Override
     public String toString() {
-        return "Habitacion:\n" +
+        return "Habitacion:\n\n" +
                 "Piso.........." + piso + "\n" +
                 "Numero........" + numero + "\n" +
                 "Tipo.........." + tipo + "\n" +

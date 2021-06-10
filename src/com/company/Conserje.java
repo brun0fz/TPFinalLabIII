@@ -171,7 +171,7 @@ public class Conserje extends Usuario{
         String mail = scanner.nextLine();
 
         Pasajero nuevoPasajero = new Pasajero(nombre, apellido, dni, usuario, contrasena, direccion, telefono, mail);
-
+        Hotel.getUsuarioList().add(nuevoPasajero);
         return nuevoPasajero;
     }
 
@@ -193,6 +193,7 @@ public class Conserje extends Usuario{
 
         Habitacion habitacion = new Habitacion();
         System.out.print("Tiene una reserva? [s/n]: ");
+        System.out.println(" ");
         com = scanner.nextLine();
 
         if (com.equals("s")) {
@@ -202,6 +203,7 @@ public class Conserje extends Usuario{
             while (com.equals("s")) {
 
                 System.out.print("Ingrese numero de DNI del pasajero: ");
+                System.out.println(" ");
                 dni = scanner.nextLine();
 
                 reserva = buscarReservaPasajero(dni);
@@ -211,6 +213,7 @@ public class Conserje extends Usuario{
                     habitacion = reserva.getHabitacion();
 
                     System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
+                    System.out.println(" ");
 
                     habitacion.setPasajero(reserva.getPasajero());
                     habitacion.setCheckIn(LocalDate.now());
@@ -233,6 +236,7 @@ public class Conserje extends Usuario{
                 int opt;
 
                 System.out.println("Tipos de habitaciones: ");
+                System.out.println(" ");
                 System.out.println("1. Individual");
                 System.out.println("2. Doble");
                 System.out.println("3. Triple");
@@ -264,7 +268,7 @@ public class Conserje extends Usuario{
                     com = "n";
 
                     System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
-
+                    System.out.println(" ");
                     System.out.print("Ingrese el usuario del pasajero: ");
 
                     scanner.nextLine();
@@ -274,13 +278,19 @@ public class Conserje extends Usuario{
 
                     if (pasajero == null) {
                         pasajero = crearPasajero();
-                        Hotel.getUsuarioList().add(pasajero);
                     }
-
+                    System.out.println("Datos del pasajero: ");
+                    System.out.println(" ");
+                    System.out.println(pasajero.toString());
+                    System.out.println(" ");
                     habitacion.setPasajero(pasajero);
                     habitacion.setCheckIn(LocalDate.now());
                     habitacion.setEstado(EstadoHabitacion.OCUPADA);
                     habitacion.setCheckOut(null);
+
+                    System.out.println("El CheckIn fue realizado con exito ");
+                    System.out.println(" ");
+
 
                 } else {
                     System.out.println("No hay habitaciones disponibles de ese tipo, desea buscar habitaciones de otro tipo?: [s/n]");
@@ -363,8 +373,9 @@ public class Conserje extends Usuario{
         while (com.equals("s")) {
             int opt;
 
-            do {
-                System.out.println("Tipos de habitaciones");
+
+                System.out.println("¿Que tipo de habitacion desea elegir? ");
+                System.out.println(" ");
                 System.out.println("1. Individual");
                 System.out.println("2. Doble");
                 System.out.println("3. Triple");
@@ -391,7 +402,7 @@ public class Conserje extends Usuario{
                         break;
                 }
 
-            } while (opt != 0);
+
 
             if (habitacion == null) {
                 System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
@@ -403,14 +414,14 @@ public class Conserje extends Usuario{
                 System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
 
                 System.out.println("Ingrese el usuario del pasajero: ");
+                System.out.println(" ");
 
-                String usuario = scanner.nextLine();
+                String usuario = scanner.next();
 
                 Pasajero pasajero = buscarPasajerosUsuario(usuario);
 
                 if (pasajero == null) {
                     pasajero = crearPasajero();
-                    Hotel.getUsuarioList().add(pasajero);
                 }
 
                 habitacion.setPasajero(pasajero);
@@ -442,13 +453,15 @@ public class Conserje extends Usuario{
                 Reserva reserva = new Reserva(habitacion, pasajero, fechaIn, fechaOut, calcularPrecioDias(habitacion, fechaIn, fechaOut));
 
                 Hotel.getReservaList().add(reserva);
+                System.out.println("Reserva realizada con exito ");
+                System.out.println("-------------------------------------------");
             }
         }
     }
 
     @Override
     public String toString() {
-        return "Conserje{}" + super.toString();
+        return super.toString();
     }
 }
 

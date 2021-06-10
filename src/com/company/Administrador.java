@@ -27,7 +27,7 @@ public class Administrador extends Conserje {
         super(nombre, apellido, dni, usuario, constrasena);
     }
 
-    public void crearConserje() {
+    public void crearConserje()  {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -46,9 +46,11 @@ public class Administrador extends Conserje {
         Conserje nuevoConserje = new Conserje(nombre, apellido, dni, usuario, contrasena);
 
         Hotel.getUsuarioList().add(nuevoConserje);
+        System.out.println("El nuevo conserje fue creado con exito ");
+        System.out.println("\n\n");
     }
 
-    public void crearAdministrador() {
+    public void crearAdministrador(){
 
         Scanner scanner = new Scanner(System.in);
 
@@ -67,6 +69,8 @@ public class Administrador extends Conserje {
         Administrador nuevoAdministrador = new Administrador(nombre, apellido, dni, usuario, contrasena);
 
         Hotel.getUsuarioList().add(nuevoAdministrador);
+        System.out.println("El nuevo administrador fue creado con exito ");
+        System.out.println("\n\n");
 
     }
 
@@ -277,4 +281,8 @@ public class Administrador extends Conserje {
         }
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
