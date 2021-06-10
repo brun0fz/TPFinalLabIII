@@ -174,6 +174,78 @@ public class Conserje extends Usuario{
         Hotel.getUsuarioList().add(nuevoPasajero);
         return nuevoPasajero;
     }
+    public void modificarPasajero(Pasajero pasajero) {
+
+        int com;
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+
+            System.out.println("Modificar Pasajero");
+
+            System.out.println(pasajero);
+
+            System.out.println("1. Nombre");
+            System.out.println("2. Apellido");
+            System.out.println("3. DNI");
+            System.out.println("4. Usuario");
+            System.out.println("5. Contraseña");
+            System.out.println("6. Direccion");
+            System.out.println("7. Telefono");
+            System.out.println("8. Email");
+            System.out.println("0. Salir");
+
+            com = scanner.nextInt();
+
+            scanner.nextLine();
+
+            switch (com) {
+
+                case 1:
+                    System.out.println("Ingrese nuevo nombre: ");
+                    pasajero.setNombre(scanner.nextLine());
+                    break;
+
+                case 2:
+                    System.out.println("Ingrese nuevo apellido");
+                    pasajero.setApellido(scanner.nextLine());
+                    break;
+
+                case 3:
+                    System.out.println("Ingrese nuevo dni");
+                    pasajero.setDni(scanner.nextLine());
+                    break;
+
+                case 4:
+                    System.out.println("Ingrese nuevo usuario");
+                    pasajero.setUsuario(scanner.nextLine());
+                    break;
+
+                case 5:
+                    System.out.println("Ingrese nueva contraseña");
+                    pasajero.setConstrasena(scanner.nextLine());
+                    break;
+
+                case 6:
+                    System.out.println("Ingrese nuevo direccion");
+                    pasajero.setDireccion(scanner.nextLine());
+                    break;
+
+                case 7:
+                    System.out.println("Ingrese nuevo telefono");
+                    pasajero.setTelefono(scanner.nextLine());
+                    break;
+
+                case 8:
+                    System.out.println("Ingrese nuevo email");
+                    pasajero.setEmail(scanner.nextLine());
+                    break;
+
+            }
+
+
+        } while (com != 0);
+    }
 
     ///revisar!
     public Reserva buscarReservaPasajero(String dni) {

@@ -58,7 +58,7 @@ public class Pasajero extends Usuario {
     }
 
 
-    public void modificarPasajero(Pasajero pasajero) {
+    public void modificarPasajero() {
 
         int com;
         Scanner scanner = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class Pasajero extends Usuario {
 
             System.out.println("Modificar Pasajero");
 
-            System.out.println(pasajero);
+            System.out.println(toString());
 
             System.out.println("1. Nombre");
             System.out.println("2. Apellido");
@@ -87,42 +87,42 @@ public class Pasajero extends Usuario {
 
                 case 1:
                     System.out.println("Ingrese nuevo nombre: ");
-                    pasajero.setNombre(scanner.nextLine());
+                    this.setNombre(scanner.nextLine());
                     break;
 
                 case 2:
                     System.out.println("Ingrese nuevo apellido");
-                    pasajero.setApellido(scanner.nextLine());
+                    this.setApellido(scanner.nextLine());
                     break;
 
                 case 3:
                     System.out.println("Ingrese nuevo dni");
-                    pasajero.setDni(scanner.nextLine());
+                    this.setDni(scanner.nextLine());
                     break;
 
                 case 4:
                     System.out.println("Ingrese nuevo usuario");
-                    pasajero.setUsuario(scanner.nextLine());
+                    this.setUsuario(scanner.nextLine());
                     break;
 
                 case 5:
                     System.out.println("Ingrese nueva contraseña");
-                    pasajero.setConstrasena(scanner.nextLine());
+                    this.setConstrasena(scanner.nextLine());
                     break;
 
                 case 6:
                     System.out.println("Ingrese nuevo direccion");
-                    pasajero.setDireccion(scanner.nextLine());
+                    this.setDireccion(scanner.nextLine());
                     break;
 
                 case 7:
                     System.out.println("Ingrese nuevo telefono");
-                    pasajero.setTelefono(scanner.nextLine());
+                    this.setTelefono(scanner.nextLine());
                     break;
 
                 case 8:
                     System.out.println("Ingrese nuevo email");
-                    pasajero.setEmail(scanner.nextLine());
+                    this.setEmail(scanner.nextLine());
                     break;
 
             }

@@ -535,7 +535,7 @@ public class Main {
                                                             admin.modificarAdministrador((Administrador) user1);
 
                                                         } else {
-                                                            pasajero.modificarPasajero((Pasajero) user1);
+                                                            admin.modificarPasajero((Pasajero) user1);
                                                         }
 
                                                     } else {
@@ -594,7 +594,7 @@ public class Main {
                                         break;
 
                                     case 3:
-                                        pasajero.modificarPasajero(pasajero);
+                                        pasajero.modificarPasajero();
                                         break;
 
                                     case 0:
