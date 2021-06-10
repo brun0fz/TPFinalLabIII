@@ -6,14 +6,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.*;
 import java.net.NetPermission;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,7 +31,7 @@ public class Administrador extends Conserje {
         super(nombre, apellido, dni, usuario, constrasena);
     }
 
-    public void crearConserje()  {
+    public void crearConserje() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -50,7 +54,7 @@ public class Administrador extends Conserje {
         System.out.println("\n\n");
     }
 
-    public void crearAdministrador(){
+    public void crearAdministrador() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -180,35 +184,27 @@ public class Administrador extends Conserje {
         }
     }
 
-
-   /* public void cargarListaUsuarioArchivo() {
+    public void cargarListaUsuarioArchivo() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping();
+        JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, Usuario.class);
         try {
-            Hotel.setUsuarioList(mapper.readValue(
-                    new File("usuariosList.json"),
-                    new TypeReference<List<Usuario>>() {
-                    }));
+            List<Usuario> usuarioList = mapper.readValue(new File("usuariosList.json"), javaType);
+            Hotel.setUsuarioList(usuarioList);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
-   public void cargarListaUsuarioArchivo() {
-       ObjectMapper mapper = new ObjectMapper();
-       mapper.enableDefaultTyping();
-       JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class,Usuario.class);
-       try {
-           List<Usuario> usuarioList = mapper.readValue(new File("usuariosList.json"),javaType );
-           Hotel.setUsuarioList(usuarioList);
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
 
-   }
+    }
+
+
 
 
     public void guardarListaReservaArchivo() {
         ObjectMapper mapper = new ObjectMapper();
+
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("reservasList.json"), Hotel.getReservaList());
@@ -221,19 +217,27 @@ public class Administrador extends Conserje {
     public void cargarListaReservaArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, Reserva.class);
+
         try {
-            Hotel.setReservaList(mapper.readValue(
-                    new File("reservasList.json"),
-                    new TypeReference<List<Reserva>>() {
-                    }));
+            List<Reserva> reservasList = mapper.readValue(new File("reservasList.json"), javaType);
+            Hotel.setReservaList(reservasList);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
+
+
     public void guardarListaHabitacionArchivo() {
         ObjectMapper mapper = new ObjectMapper();
+
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("habitacionesList.json"), Hotel.getHabitacionList());
@@ -246,40 +250,19 @@ public class Administrador extends Conserje {
     public void cargarListaHabitacionArchivo() {
         ObjectMapper mapper = new ObjectMapper();
 
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, Habitacion.class);
+
         try {
-            Hotel.setHabitacionList(mapper.readValue(
-                    new File("habitacionesList.json"),
-                    new TypeReference<List<Habitacion>>() {
-                    }));
+            List<Habitacion> habitacionesList = mapper.readValue(new File("habitacionesList.json"), javaType);
+            Hotel.setHabitacionList(habitacionesList);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-
-    public void guardarMiniBarArchivo() {
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("miniBar.json"), Hotel.getMiniBar());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public void cargarMiniBarArchivo() {
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            Hotel.setMiniBar(mapper.readValue(
-                    new File("miniBar.json"),
-                    new TypeReference<List<Producto>>() {
-                    }));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public String toString() {

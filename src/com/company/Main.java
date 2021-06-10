@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         Administrador admin = new Administrador("Bruno", "Fabrizio", "40579965", "brunofz", "1759");
-        /* Administrador admin2 = new Administrador("Danilo", "Suarez", "33102857", "danilomdq", "2481");
+        /*Administrador admin2 = new Administrador("Danilo", "Suarez", "33102857", "danilomdq", "2481");
 
         Conserje conserje = new Conserje("Ezequiel", "Rage", "27123123", "eze", "1234");
         Pasajero pasajero = new Pasajero("Carlos", "Miranda", "32123123", "charly", "1234", "Funes 2461", "2236688139", "charly@gmail.com");
@@ -51,26 +51,7 @@ public class Main {
         Hotel.getHabitacionList().add(habi31);
         Hotel.getHabitacionList().add(habi33);
 
-        Producto cocaCola = new Producto(NombreProducto.COCA_COLA, 120);
-        Producto agua = new Producto(NombreProducto.AGUA, 120);
-        Producto sandwich = new Producto(NombreProducto.SANDWICH, 120);
-        Producto oreo = new Producto(NombreProducto.OREO, 80);
-        Producto havanna = new Producto(NombreProducto.HAVANNA, 98);
-        Producto cerveza = new Producto(NombreProducto.CERVEZA, 135);
-        Producto sonrisas = new Producto(NombreProducto.SONRISAS, 118);
-        Producto sprite = new Producto(NombreProducto.SPRITE, 135);
-        Producto soda = new Producto(NombreProducto.SODA, 135);
-        Producto whisky = new Producto(NombreProducto.WHISKY, 135);
-        Hotel.getMiniBar().add(cocaCola);
-        Hotel.getMiniBar().add(agua);
-        Hotel.getMiniBar().add(sandwich);
-        Hotel.getMiniBar().add(oreo);
-        Hotel.getMiniBar().add(havanna);
-        Hotel.getMiniBar().add(cerveza);
-        Hotel.getMiniBar().add(sonrisas);
-        Hotel.getMiniBar().add(sprite);
-        Hotel.getMiniBar().add(soda);
-        Hotel.getMiniBar().add(whisky);
+
 
 
         Hotel.getUsuarioList().add(admin);
@@ -80,18 +61,18 @@ public class Main {
 
 
         admin.guardarListaUsuarioArchivo();
-        admin.guardarMiniBarArchivo();
         admin.guardarListaHabitacionArchivo();
+        admin.guardarListaReservaArchivo();*/
 
 
-         */
         admin.cargarListaUsuarioArchivo();
         admin.cargarListaHabitacionArchivo();
         //admin.cargarListaReservaArchivo();
-        admin.cargarMiniBarArchivo();
-
 
         sistemaHoteleria();
+
+        ///Falta regimen de comida en checkin y reserva, reserva remota. Calcular precio de la habitacion
+        ///interfaz
     }
 
     public static void sistemaHoteleria() {
@@ -121,7 +102,6 @@ public class Main {
                     System.out.println("inicio de sesion");
 
                     Usuario user = Hotel.inicioDeSesion();
-
 
                     if (user != null) {
                         if (user.getClass().equals(Conserje.class)) {
@@ -156,7 +136,8 @@ public class Main {
                                 System.out.println("4. Buscar Pasajeros");
                                 System.out.println("5. Mostrar habitaciones por tipo");
                                 System.out.println("6. Mostrar habitaciones por estado");
-                                System.out.println("7. Modificar mis datos");
+                                System.out.println("7. Mostrar reservas activas");
+                                System.out.println("8. Modificar mis datos");
                                 System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
@@ -305,6 +286,10 @@ public class Main {
                                         break;
 
                                     case 7:
+                                        conserje.mostrarReservas();
+                                        break;
+
+                                    case 8:
                                         conserje.modificarConserje(conserje);
                                         break;
 
@@ -326,10 +311,11 @@ public class Main {
                                 System.out.println("4. Buscar Pasajeros");
                                 System.out.println("5. Mostrar habitaciones por tipo");
                                 System.out.println("6. Mostrar habitaciones por estado");
-                                System.out.println("7. Crear Usuario");
-                                System.out.println("8. Asignar Permisos");
-                                System.out.println("9. Modificar Usuarios");
-                                System.out.println("10. Realizar Back-Up");
+                                System.out.println("7. Mostrar reservas activas");
+                                System.out.println("8. Crear Usuario");
+                                System.out.println("9. Asignar Permisos");
+                                System.out.println("10. Modificar Usuarios");
+                                System.out.println("11. Realizar Back-Up");
                                 System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
@@ -471,8 +457,12 @@ public class Main {
 
                                         break;
 
-                                    //Crear Usuario
                                     case 7:
+                                        admin.mostrarReservas();
+                                        break;
+
+                                    //Crear Usuario
+                                    case 8:
                                         do {
                                             System.out.println("Que tipo de usuario desea crear?: ");
                                             System.out.println("1. Pasajero");
@@ -505,11 +495,11 @@ public class Main {
                                         break;
 
                                     //Asignar Permisos
-                                    case 8:
+                                    case 9:
                                         break;
 
                                     //Modificar usuarios
-                                    case 9:
+                                    case 10:
 
                                         do {
 
@@ -558,11 +548,10 @@ public class Main {
                                         break;
 
                                     //Realizar Back-Up
-                                    case 10:
+                                    case 11:
                                         admin.guardarListaUsuarioArchivo();
                                         admin.guardarListaHabitacionArchivo();
                                         admin.guardarListaReservaArchivo();
-                                        admin.guardarMiniBarArchivo();
 
                                         System.out.println("Realizando Back-Up...");
                                         break;
@@ -577,8 +566,7 @@ public class Main {
                             do {
                                 System.out.println("Menu Pasajero");
                                 System.out.println("1. Realizar reserva remota");
-                                System.out.println("2. Mini Bar");
-                                System.out.println("3. Modificar sus datos");
+                                System.out.println("2. Modificar sus datos");
                                 System.out.println("0. Salir");
 
                                 com = scanner.nextInt();
@@ -590,10 +578,6 @@ public class Main {
                                         break;
 
                                     case 2:
-                                        pasajero.realizarConsumo();
-                                        break;
-
-                                    case 3:
                                         pasajero.modificarPasajero();
                                         break;
 

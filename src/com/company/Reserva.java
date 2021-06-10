@@ -5,40 +5,36 @@ import java.time.LocalDate;
 
 public class Reserva {
 
-    private Habitacion habitacion;
-    private Pasajero pasajero;
+    private String numeroHabitacion;
+    private String dniPasajero;
     private LocalDate fechaIn;
     private LocalDate fechaOut;
     private Double precio;
 
-    private boolean activo;
+    private boolean activo = true;
 
-
-    public Reserva() {
-    }
-
-    public Reserva(Habitacion habitacion, Pasajero pasajero, LocalDate fechaIn, LocalDate fechaOut, Double precio) {
-        this.habitacion = habitacion;
-        this.pasajero = pasajero;
+    public Reserva(String numeroHabitacion, String dniPasajero, LocalDate fechaIn, LocalDate fechaOut, Double precio) {
+        this.numeroHabitacion = numeroHabitacion;
+        this.dniPasajero = dniPasajero;
         this.fechaIn = fechaIn;
         this.fechaOut = fechaOut;
         this.precio = precio;
     }
 
-    public Habitacion getHabitacion() {
-        return habitacion;
+    public String getNumeroHabitacion() {
+        return numeroHabitacion;
     }
 
-    public void setHabitacion(Habitacion habitacion) {
-        this.habitacion = habitacion;
+    public void setNumeroHabitacion(String numeroHabitacion) {
+        this.numeroHabitacion = numeroHabitacion;
     }
 
-    public Pasajero getPasajero() {
-        return pasajero;
+    public String getDniPasajero() {
+        return dniPasajero;
     }
 
-    public void setPasajero(Pasajero pasajero) {
-        this.pasajero = pasajero;
+    public void setDniPasajero(String dniPasajero) {
+        this.dniPasajero = dniPasajero;
     }
 
     public LocalDate getFechaIn() {
@@ -65,11 +61,20 @@ public class Reserva {
         this.precio = precio;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
+
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
-    public boolean isActivo() {
-        return activo;
+    @Override
+    public String toString() {
+        return  "Habitacion Nro..........." + this.numeroHabitacion + "\n" +
+                "DNI Pasajero........." + this.dniPasajero +
+                "Fecha de entrada.............." + this.fechaIn + "\n" +
+                "Fecha de salida.........." + this.fechaOut + "\n" +
+                "Precio......" + this.precio + "\n";
     }
 }

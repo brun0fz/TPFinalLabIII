@@ -17,9 +17,6 @@ public  class Hotel {
 
     private static List<Reserva> reservaList = new ArrayList<>();
 
-    private static List<Producto> miniBar = new ArrayList<>();
-
-
     public static String getNombre() {
         return nombre;
     }
@@ -58,14 +55,6 @@ public  class Hotel {
 
     public static void setReservaList(List<Reserva> reservaList) {
         Hotel.reservaList = reservaList;
-    }
-
-    public static List<Producto> getMiniBar() {
-        return miniBar;
-    }
-
-    public static void setMiniBar(List<Producto> miniBar) {
-        Hotel.miniBar = miniBar;
     }
 
     public static Usuario inicioDeSesion() {

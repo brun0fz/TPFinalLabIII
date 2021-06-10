@@ -3,11 +3,12 @@ package com.company;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 
-public class Pasajero extends Usuario {
+public class Pasajero extends Usuario implements Serializable {
 
     private String direccion;
     private String telefono;
@@ -134,62 +135,13 @@ public class Pasajero extends Usuario {
 
     public Habitacion buscarMiHabitacion() {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
-            if (habitacion.getPasajero() != null && habitacion.getPasajero().getDni().equals(this.getDni())) {
+            if (habitacion.getDniPasajero() != null && habitacion.getDniPasajero().equals(this.getDni())) {
                 return habitacion;
             }
         }
         return null;
     }
 
-    public void realizarConsumo() {
-
-        Scanner scanner = new Scanner(System.in);
-        Habitacion habitacion = buscarMiHabitacion();
-
-        int com;
-
-        if(habitacion != null) {
-
-
-            do {
-
-                System.out.println("MINI BAR");
-
-                System.out.println("Elija el producto");
-
-                System.out.println("1. Coca cola");
-                System.out.println("2. Agua mineral");
-                System.out.println("3. Sandwich de miga");
-                System.out.println("\n0. Salir");
-
-                com = scanner.nextInt();
-
-                switch (com) {
-                    case 1:
-                        System.out.println("Coca cola!");
-                        habitacion.getConsumoList().add(Hotel.getMiniBar().get(0));
-                        break;
-
-                    case 2:
-                        habitacion.getConsumoList().add(Hotel.getMiniBar().get(1));
-                        break;
-
-                    case 3:
-                        habitacion.getConsumoList().add(Hotel.getMiniBar().get(2));
-                        break;
-
-                    case 0:
-                        break;
-
-                }
-
-            } while (com != 0);
-
-        }else{
-            System.out.println("Usted no se encuentra en ninguna habitacion.");
-        }
-
-    }
 
     public void reservaRemota(Pasajero pasajero) {
 
@@ -243,7 +195,7 @@ public class Pasajero extends Usuario {
 
                 System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
 
-                habitacion.setPasajero(pasajero);
+                habitacion.setDniPasajero(pasajero.getDni());
                 habitacion.setEstado(EstadoHabitacion.RESERVADA);
                 habitacion.setCheckOut(null);
 
@@ -269,7 +221,7 @@ public class Pasajero extends Usuario {
 
                 LocalDate fechaOut = LocalDate.of(anio, mes, dia);
 
-                Reserva reserva = new Reserva(habitacion, pasajero, fechaIn, fechaOut, conserje.calcularPrecioDias(habitacion, fechaIn, fechaOut));
+                Reserva reserva = new Reserva(habitacion.getNumero(), pasajero.getDni(), fechaIn, fechaOut, conserje.calcularPrecioDias(habitacion, fechaIn, fechaOut));
 
                 Hotel.getReservaList().add(reserva);
 

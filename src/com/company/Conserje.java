@@ -93,6 +93,14 @@ public class Conserje extends Usuario{
     }
 
 
+    public void mostrarReservas(){
+        for(Reserva reserva : Hotel.getReservaList()){
+            if(reserva.isActivo()){
+                System.out.println(reserva);
+            }
+        }
+    }
+
     public void modificarConserje(Conserje conserje) {
 
         int com;
@@ -250,11 +258,21 @@ public class Conserje extends Usuario{
     ///revisar!
     public Reserva buscarReservaPasajero(String dni) {
         for (Reserva reserva : Hotel.getReservaList()) {
-            if (reserva.getPasajero().getDni().equals(dni)) {
+            if (reserva.getDniPasajero().equals(dni)) {
                 return reserva;
             }
         }
         return null;
+    }
+
+    public Habitacion buscarHabitacionNro(String nro){
+        for(Habitacion habitacion : Hotel.getHabitacionList()){
+            if(habitacion.getNumero().equals(nro)){
+                return habitacion;
+            }
+        }
+        return null;
+
     }
 
     public void checkIn() {
@@ -282,12 +300,12 @@ public class Conserje extends Usuario{
 
                 if (reserva != null) {
 
-                    habitacion = reserva.getHabitacion();
+                    habitacion = buscarHabitacionNro(reserva.getNumeroHabitacion());
 
                     System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
                     System.out.println(" ");
 
-                    habitacion.setPasajero(reserva.getPasajero());
+                    habitacion.setDniPasajero(reserva.getDniPasajero());
                     habitacion.setCheckIn(LocalDate.now());
                     habitacion.setEstado(EstadoHabitacion.OCUPADA);
                     habitacion.setCheckOut(null);
@@ -355,7 +373,7 @@ public class Conserje extends Usuario{
                     System.out.println(" ");
                     System.out.println(pasajero.toString());
                     System.out.println(" ");
-                    habitacion.setPasajero(pasajero);
+                    habitacion.setDniPasajero(pasajero.getDni());
                     habitacion.setCheckIn(LocalDate.now());
                     habitacion.setEstado(EstadoHabitacion.OCUPADA);
                     habitacion.setCheckOut(null);
@@ -376,7 +394,7 @@ public class Conserje extends Usuario{
     public Habitacion buscarHabitacionPasajero(String dni) {
 
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
-            if (habitacion.getPasajero().getDni().equals(dni)) {
+            if (habitacion.getDniPasajero().equals(dni)) {
                 return habitacion;
             }
         }
@@ -415,12 +433,12 @@ public class Conserje extends Usuario{
 
                 habitacion.setCheckOut(LocalDate.now());
 
-                total = habitacion.calcularPrecioConsumos() + calcularPrecioDias(habitacion, habitacion.getCheckIn(), habitacion.getCheckOut());
+                total = calcularPrecioDias(habitacion, habitacion.getCheckIn(), habitacion.getCheckOut());
 
                 habitacion.setCheckIn(null);
                 habitacion.setEstado(EstadoHabitacion.LIBRE);
-                habitacion.setPasajero(null);
-                habitacion.setConsumoList(null);
+                habitacion.setDniPasajero(null);
+                habitacion.setRegimenComida(null);
 
                 System.out.println("Usted debe pagar:" + total);
 
@@ -496,7 +514,7 @@ public class Conserje extends Usuario{
                     pasajero = crearPasajero();
                 }
 
-                habitacion.setPasajero(pasajero);
+                habitacion.setDniPasajero(pasajero.getDni());
                 habitacion.setEstado(EstadoHabitacion.RESERVADA);
                 habitacion.setCheckOut(null);
 
@@ -522,7 +540,7 @@ public class Conserje extends Usuario{
 
                 LocalDate fechaOut = LocalDate.of(anio, mes, dia);
 
-                Reserva reserva = new Reserva(habitacion, pasajero, fechaIn, fechaOut, calcularPrecioDias(habitacion, fechaIn, fechaOut));
+                Reserva reserva = new Reserva(habitacion.getNumero(), pasajero.getDni(), fechaIn, fechaOut, calcularPrecioDias(habitacion, fechaIn, fechaOut));
 
                 Hotel.getReservaList().add(reserva);
                 System.out.println("Reserva realizada con exito ");

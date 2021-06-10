@@ -1,23 +1,28 @@
 package com.company;
 
+
+
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Habitacion {
+
 
     private String piso;
     private String numero;
     private TipoDeHabitacion tipo;
+
+    private RegimenComida regimenComida;
+
     private Double precio;
 
-    private Pasajero pasajero;
+    private String dniPasajero;
 
     private LocalDate checkIn;
     private LocalDate checkOut;
     private EstadoHabitacion Estado;
 
-    private List<Producto> consumoList = new ArrayList<>();
+
 
     public Habitacion() {
     }
@@ -29,6 +34,22 @@ public class Habitacion {
         this.tipo = tipo;
         this.precio = precio;
         this.Estado = estado;
+    }
+
+    public RegimenComida getRegimenComida() {
+        return regimenComida;
+    }
+
+    public void setRegimenComida(RegimenComida regimenComida) {
+        this.regimenComida = regimenComida;
+    }
+
+    public String getDniPasajero() {
+        return dniPasajero;
+    }
+
+    public void setDniPasajero(String dniPasajero) {
+        this.dniPasajero = dniPasajero;
     }
 
     public String getPiso() {
@@ -63,13 +84,7 @@ public class Habitacion {
         this.precio = precio;
     }
 
-    public Pasajero getPasajero() {
-        return pasajero;
-    }
 
-    public void setPasajero(Pasajero pasajero) {
-        this.pasajero = pasajero;
-    }
 
     public LocalDate getCheckIn() {
         return checkIn;
@@ -95,26 +110,6 @@ public class Habitacion {
         Estado = estado;
     }
 
-    public List<Producto> getConsumoList() {
-        return consumoList;
-    }
-
-    public void setConsumoList(List<Producto> consumoList) {
-        this.consumoList = consumoList;
-    }
-
-
-
-    public double calcularPrecioConsumos(){
-
-        double total=0;
-
-        for (Producto producto:consumoList){
-            total+=producto.getPrecio();
-        }
-        return total;
-    }
-
 
     @Override
     public String toString() {
@@ -123,10 +118,10 @@ public class Habitacion {
                 "Numero........" + numero + "\n" +
                 "Tipo.........." + tipo + "\n" +
                 "Precio........" + precio +"\n"+
-                "Pasajero......" + pasajero +"\n"+
+                "Pasajero DNI......" + dniPasajero +"\n"+
                 "CheckIn......." + checkIn+"\n" +
                 "CheckOut......" + checkOut+"\n" +
                 "Estado........" + Estado +"\n" +
-                "Consumos......" + consumoList ;
+                "Regimen......" + regimenComida ;
     }
 }
