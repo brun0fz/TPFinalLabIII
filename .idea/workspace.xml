@@ -1,36 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Ssolucion en varias cosas mas">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_datatype_jsr310_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jackson-datatype-jsr310-2.12.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/RegimenComida.java" afterDir="false" />
+    <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Solucion de las clases para el manejo de archivos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habitacionesList.json" beforeDir="false" afterPath="$PROJECT_DIR$/habitacionesList.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Administrador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Consumo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Habitacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Hotel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Hotel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Pasajero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Pasajero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Producto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Reserva.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Reserva.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/UserType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Administrador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Conserje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Conserje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Consumo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Habitacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Hotel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Pasajero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Pasajero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Producto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Reserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled104.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled104.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -359,7 +331,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623290925109</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Solucion de las clases para el manejo de archivos">
+      <created>1623367720648</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1623367720648</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Solucion de las clases para el manejo de archivos">
+      <created>1623367732258</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1623367732258</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -387,6 +373,7 @@
     <MESSAGE value="Solucionado el inicio de sesion y menu" />
     <MESSAGE value="Ssolucion en varios metodos del administrador y en menu admin" />
     <MESSAGE value="Ssolucion en varias cosas mas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ssolucion en varias cosas mas" />
+    <MESSAGE value="Solucion de las clases para el manejo de archivos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solucion de las clases para el manejo de archivos" />
   </component>
 </project>
