@@ -2,7 +2,7 @@ package com.company;
 
 public interface Descuento {
 
-     double descuento(double porcentaje);
+     double aplicarDescuento(double porcentaje, double total);
 
 
 }

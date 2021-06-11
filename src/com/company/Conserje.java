@@ -1,14 +1,14 @@
 package com.company;
 
 
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
 
-public class Conserje extends Usuario {
+public class Conserje extends Usuario implements Descuento {
 
 
     public Conserje() {
@@ -380,12 +380,46 @@ public class Conserje extends Usuario {
 
                 total = calcularPrecioDias(habitacion, valorComida, habitacion.getCheckIn(), habitacion.getCheckOut());
 
+                double descuento = 0;
+                String opcion;
+                int opt;
+                System.out.println("¿Tiene voucher de descuento?");
+                System.out.println("s/n ");
+                System.out.println(" ");
+                opcion = scanner.next();
+
+                if (opcion.equals("s")) {
+
+                    System.out.println("Elija el descuento: ");
+                    System.out.println("1. 5% ");
+                    System.out.println("2. 10% ");
+                    System.out.println("3. 15% \n");
+                    System.out.println("0. Salir");
+
+                    opt = scanner.nextInt();
+                    switch (opt) {
+                        case 1:
+                            descuento = 5;
+                            break;
+                        case 2:
+                            descuento = 10;
+                            break;
+                        case 3:
+                            descuento = 15;
+                            break;
+                    }
+
+                    total = aplicarDescuento(descuento, total);
+                }
                 habitacion.setCheckIn(null);
                 habitacion.setEstado(EstadoHabitacion.LIBRE);
                 habitacion.setDniPasajero(null);
                 habitacion.setRegimenComida(null);
 
+                System.out.println(" ");
                 System.out.println("Usted debe pagar:" + total);
+                System.out.println(" ");
+                System.out.println("Gracias por su visita");
 
             } else {
 
@@ -544,6 +578,12 @@ public class Conserje extends Usuario {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public double aplicarDescuento(double porcentaje, double total) {
+        total -= (total * porcentaje) / 100;
+        return total;
     }
 }
 

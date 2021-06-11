@@ -2,12 +2,12 @@
   "piso" : "1",
   "numero" : "1",
   "tipo" : "INDIVIDUAL",
-  "regimenComida" : null,
+  "regimenComida" : "PENSION_COMPLETA",
   "precio" : 333.45,
-  "dniPasajero" : null,
-  "checkIn" : null,
+  "dniPasajero" : "32123123",
+  "checkIn" : "2021-06-09",
   "checkOut" : null,
-  "estado" : "LIBRE"
+  "estado" : "OCUPADA"
 }, {
   "piso" : "1",
   "numero" : "2",
