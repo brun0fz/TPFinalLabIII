@@ -328,7 +328,7 @@ public class Conserje extends Usuario {
     public Habitacion buscarHabitacionPasajero(String dni) {
 
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
-            if (habitacion.getDniPasajero().equals(dni)) {
+            if (habitacion.getDniPasajero() != null && habitacion.getDniPasajero().equals(dni)) {
                 return habitacion;
             }
         }
@@ -525,10 +525,16 @@ public class Conserje extends Usuario {
 
         if (reserva != null) {
             reserva.setActivo(false);
+
             Habitacion habitacion = buscarHabitacionPasajero(dni);
+
             habitacion.setEstado(EstadoHabitacion.LIBRE);
+            habitacion.setDniPasajero(null);
+            habitacion.setRegimenComida(null);
+
             Pasajero pasajero = buscarPasajerosDni(dni);
             pasajero.setReserva(null);
+
             System.out.println("Se ha cancelado la reserva.\n\n");
         } else {
             System.out.println("El pasajero no realizo una reserva.\n\n");

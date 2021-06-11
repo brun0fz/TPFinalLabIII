@@ -87,7 +87,7 @@
   "dniPasajero" : "392131312",
   "checkIn" : null,
   "checkOut" : null,
-  "estado" : "RESERVADA"
+  "estado" : "LIBRE"
 }, {
   "piso" : "3",
   "numero" : "10",

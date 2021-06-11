@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Metodos de la clase admin y conserje.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habitacionesList.json" beforeDir="false" afterPath="$PROJECT_DIR$/habitacionesList.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Conserje.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservasList.json" beforeDir="false" afterPath="$PROJECT_DIR$/reservasList.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Conserje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Conserje.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -387,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623386687125</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Metodos de la clase admin y conserje.">
+      <created>1623386746904</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1623386746904</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
