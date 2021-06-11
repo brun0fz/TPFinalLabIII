@@ -30,4 +30,15 @@
   "telefono" : "2236688139",
   "email" : "charly@gmail.com",
   "reserva" : null
+} ], [ "com.company.Pasajero", {
+  "nombre" : "Giselle",
+  "apellido" : "Alliana",
+  "dni" : "392131312",
+  "usuario" : "gigi",
+  "constrasena" : "1234",
+  "activo" : true,
+  "direccion" : "don bosco 124",
+  "telefono" : "123213132",
+  "email" : "gigi@gmail.com",
+  "reserva" : null
 } ] ]

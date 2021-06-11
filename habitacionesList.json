@@ -82,12 +82,12 @@
   "piso" : "3",
   "numero" : "9",
   "tipo" : "QUEEN",
-  "regimenComida" : null,
+  "regimenComida" : "PENSION_COMPLETA",
   "precio" : 650.7,
-  "dniPasajero" : null,
+  "dniPasajero" : "392131312",
   "checkIn" : null,
   "checkOut" : null,
-  "estado" : "LIBRE"
+  "estado" : "RESERVADA"
 }, {
   "piso" : "3",
   "numero" : "10",

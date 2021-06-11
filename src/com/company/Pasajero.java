@@ -1,8 +1,5 @@
 package com.company;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -142,7 +139,6 @@ public class Pasajero extends Usuario implements Serializable {
         return null;
     }
 
-
     public void reservaRemota(Pasajero pasajero) {
 
         Scanner scanner = new Scanner(System.in);
@@ -155,7 +151,6 @@ public class Pasajero extends Usuario implements Serializable {
         while (com.equals("s")) {
             int opt;
 
-            do {
                 System.out.println("Reserva\n");
                 System.out.println("Seleccione el Tipo de habitacion");
                 System.out.println("1. Individual");
@@ -184,8 +179,6 @@ public class Pasajero extends Usuario implements Serializable {
                         break;
                 }
 
-            } while (opt != 0);
-
             if (habitacion == null) {
                 System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
                 com = scanner.nextLine();
@@ -194,6 +187,20 @@ public class Pasajero extends Usuario implements Serializable {
                 com = "n";
 
                 System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
+
+                System.out.println("Que tipo de regimen de comida desea?");
+
+                System.out.println("1. Media pension");
+                System.out.println("2. Pension completa");
+
+                int com1 = scanner.nextInt();
+
+                if (com1 == 1) {
+                    habitacion.setRegimenComida(RegimenComida.MEDIA_PENSION);
+                } else {
+                    habitacion.setRegimenComida(RegimenComida.PENSION_COMPLETA);
+                }
+
 
                 habitacion.setDniPasajero(pasajero.getDni());
                 habitacion.setEstado(EstadoHabitacion.RESERVADA);
@@ -221,7 +228,17 @@ public class Pasajero extends Usuario implements Serializable {
 
                 LocalDate fechaOut = LocalDate.of(anio, mes, dia);
 
-                Reserva reserva = new Reserva(habitacion.getNumero(), pasajero.getDni(), fechaIn, fechaOut, conserje.calcularPrecioDias(habitacion, fechaIn, fechaOut));
+                double valorComida;
+
+                if (habitacion.getRegimenComida() == RegimenComida.PENSION_COMPLETA) {
+                    valorComida = 200;
+                } else {
+                    valorComida = 100;
+                }
+
+                Reserva reserva = new Reserva(habitacion.getNumero(), pasajero.getDni(), fechaIn, fechaOut, conserje.calcularPrecioDias(habitacion, valorComida, fechaIn, fechaOut));
+
+                this.reserva = reserva;
 
                 Hotel.getReservaList().add(reserva);
 
@@ -229,7 +246,6 @@ public class Pasajero extends Usuario implements Serializable {
             }
         }
     }
-
 
 
     @Override

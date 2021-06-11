@@ -7,31 +7,12 @@ import java.util.Scanner;
 
 public  class Hotel {
 
-    private static String nombre;
-    private static String direccion;
-
 
     private static List<Usuario> usuarioList = new ArrayList<>();
 
     private static List<Habitacion> habitacionList = new ArrayList<>();
 
     private static List<Reserva> reservaList = new ArrayList<>();
-
-    public static String getNombre() {
-        return nombre;
-    }
-
-    public static void setNombre(String nombre) {
-        Hotel.nombre = nombre;
-    }
-
-    public static String getDireccion() {
-        return direccion;
-    }
-
-    public static void setDireccion(String direccion) {
-        Hotel.direccion = direccion;
-    }
 
     public static List<Usuario> getUsuarioList() {
         return usuarioList;
@@ -89,8 +70,6 @@ public  class Hotel {
             String dni = scanner.nextLine();
             System.out.print("Ingrese usuario: ");
             String usuario = scanner.nextLine();
-
-
             System.out.print("Ingrese contraseña: ");
             String contrasena = scanner.nextLine();
             System.out.print("Ingrese direccion: ");

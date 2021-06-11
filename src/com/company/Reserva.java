@@ -13,6 +13,9 @@ public class Reserva {
 
     private boolean activo = true;
 
+    public Reserva() {
+    }
+
     public Reserva(String numeroHabitacion, String dniPasajero, LocalDate fechaIn, LocalDate fechaOut, Double precio) {
         this.numeroHabitacion = numeroHabitacion;
         this.dniPasajero = dniPasajero;
@@ -71,10 +74,10 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return  "Habitacion Nro..........." + this.numeroHabitacion + "\n" +
-                "DNI Pasajero........." + this.dniPasajero +
-                "Fecha de entrada.............." + this.fechaIn + "\n" +
+        return  "Habitacion Nro..." + this.numeroHabitacion + "\n" +
+                "DNI Pasajero.........." + this.dniPasajero + "\n" +
+                "Fecha de entrada.........." + this.fechaIn + "\n" +
                 "Fecha de salida.........." + this.fechaOut + "\n" +
-                "Precio......" + this.precio + "\n";
+                "Precio.... $" + this.precio + "\n";
     }
 }

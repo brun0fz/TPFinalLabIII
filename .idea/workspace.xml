@@ -3,6 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="78f07c5d-4256-4581-825e-e45db916d7da" name="Default Changelist" comment="Solucion de las clases para el manejo de archivos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habitacionesList.json" beforeDir="false" afterPath="$PROJECT_DIR$/habitacionesList.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniBar.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservasList.json" beforeDir="false" afterPath="$PROJECT_DIR$/reservasList.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Conserje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Conserje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Habitacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Habitacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Pasajero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Pasajero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/RegimenComida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/RegimenComida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled104.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled104.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuariosList.json" beforeDir="false" afterPath="$PROJECT_DIR$/usuariosList.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -366,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623368065678</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Solucion de las clases para el manejo de archivos">
+      <created>1623368104933</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1623368104933</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

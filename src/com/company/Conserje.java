@@ -1,14 +1,14 @@
 package com.company;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
 
-public class Conserje extends Usuario{
+public class Conserje extends Usuario {
 
 
     public Conserje() {
@@ -17,7 +17,6 @@ public class Conserje extends Usuario{
     public Conserje(String nombre, String apellido, String dni, String usuario, String constrasena) {
         super(nombre, apellido, dni, usuario, constrasena);
     }
-
 
     public Habitacion buscarHabitacionDisponible(TipoDeHabitacion tipo) {
         for (Habitacion habitacion : Hotel.getHabitacionList()) {
@@ -28,12 +27,6 @@ public class Conserje extends Usuario{
             }
         }
         return null;
-    }
-
-    public void mostrarHabitaciones() {
-        for (Habitacion habitacion : Hotel.getHabitacionList()) {
-            System.out.println(habitacion);
-        }
     }
 
     public void mostrarHabitacionesEstado(EstadoHabitacion estado) {
@@ -93,9 +86,9 @@ public class Conserje extends Usuario{
     }
 
 
-    public void mostrarReservas(){
-        for(Reserva reserva : Hotel.getReservaList()){
-            if(reserva.isActivo()){
+    public void mostrarReservas() {
+        for (Reserva reserva : Hotel.getReservaList()) {
+            if (reserva.isActivo()) {
                 System.out.println(reserva);
             }
         }
@@ -182,80 +175,8 @@ public class Conserje extends Usuario{
         Hotel.getUsuarioList().add(nuevoPasajero);
         return nuevoPasajero;
     }
-    public void modificarPasajero(Pasajero pasajero) {
-
-        int com;
-        Scanner scanner = new Scanner(System.in);
-
-        do {
-
-            System.out.println("Modificar Pasajero");
-
-            System.out.println(pasajero);
-
-            System.out.println("1. Nombre");
-            System.out.println("2. Apellido");
-            System.out.println("3. DNI");
-            System.out.println("4. Usuario");
-            System.out.println("5. Contraseña");
-            System.out.println("6. Direccion");
-            System.out.println("7. Telefono");
-            System.out.println("8. Email");
-            System.out.println("0. Salir");
-
-            com = scanner.nextInt();
-
-            scanner.nextLine();
-
-            switch (com) {
-
-                case 1:
-                    System.out.println("Ingrese nuevo nombre: ");
-                    pasajero.setNombre(scanner.nextLine());
-                    break;
-
-                case 2:
-                    System.out.println("Ingrese nuevo apellido");
-                    pasajero.setApellido(scanner.nextLine());
-                    break;
-
-                case 3:
-                    System.out.println("Ingrese nuevo dni");
-                    pasajero.setDni(scanner.nextLine());
-                    break;
-
-                case 4:
-                    System.out.println("Ingrese nuevo usuario");
-                    pasajero.setUsuario(scanner.nextLine());
-                    break;
-
-                case 5:
-                    System.out.println("Ingrese nueva contraseña");
-                    pasajero.setConstrasena(scanner.nextLine());
-                    break;
-
-                case 6:
-                    System.out.println("Ingrese nuevo direccion");
-                    pasajero.setDireccion(scanner.nextLine());
-                    break;
-
-                case 7:
-                    System.out.println("Ingrese nuevo telefono");
-                    pasajero.setTelefono(scanner.nextLine());
-                    break;
-
-                case 8:
-                    System.out.println("Ingrese nuevo email");
-                    pasajero.setEmail(scanner.nextLine());
-                    break;
-
-            }
 
 
-        } while (com != 0);
-    }
-
-    ///revisar!
     public Reserva buscarReservaPasajero(String dni) {
         for (Reserva reserva : Hotel.getReservaList()) {
             if (reserva.getDniPasajero().equals(dni)) {
@@ -265,9 +186,9 @@ public class Conserje extends Usuario{
         return null;
     }
 
-    public Habitacion buscarHabitacionNro(String nro){
-        for(Habitacion habitacion : Hotel.getHabitacionList()){
-            if(habitacion.getNumero().equals(nro)){
+    public Habitacion buscarHabitacionNro(String nro) {
+        for (Habitacion habitacion : Hotel.getHabitacionList()) {
+            if (habitacion.getNumero().equals(nro)) {
                 return habitacion;
             }
         }
@@ -293,7 +214,6 @@ public class Conserje extends Usuario{
             while (com.equals("s")) {
 
                 System.out.print("Ingrese numero de DNI del pasajero: ");
-                System.out.println(" ");
                 dni = scanner.nextLine();
 
                 reserva = buscarReservaPasajero(dni);
@@ -305,6 +225,8 @@ public class Conserje extends Usuario{
                     System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
                     System.out.println(" ");
 
+                    Pasajero pasajero2 = buscarPasajerosDni(reserva.getDniPasajero());
+                    pasajero2.setReserva(null);
                     habitacion.setDniPasajero(reserva.getDniPasajero());
                     habitacion.setCheckIn(LocalDate.now());
                     habitacion.setEstado(EstadoHabitacion.OCUPADA);
@@ -321,12 +243,12 @@ public class Conserje extends Usuario{
         } else {
 
             com = "s";
+
             while (com.equals("s")) {
 
                 int opt;
 
-                System.out.println("Tipos de habitaciones: ");
-                System.out.println(" ");
+                System.out.println("Tipos de habitaciones: \n");
                 System.out.println("1. Individual");
                 System.out.println("2. Doble");
                 System.out.println("3. Triple");
@@ -353,12 +275,25 @@ public class Conserje extends Usuario{
                         break;
                 }
 
-
                 if (habitacion != null) {
                     com = "n";
 
                     System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
                     System.out.println(" ");
+
+                    System.out.println("Que tipo de regimen de comida desea?");
+
+                    System.out.println("1. Media pension");
+                    System.out.println("2. Pension completa");
+
+                    int com1 = scanner.nextInt();
+
+                    if (com1 == 1) {
+                        habitacion.setRegimenComida(RegimenComida.MEDIA_PENSION);
+                    } else {
+                        habitacion.setRegimenComida(RegimenComida.PENSION_COMPLETA);
+                    }
+
                     System.out.print("Ingrese el usuario del pasajero: ");
 
                     scanner.nextLine();
@@ -369,18 +304,17 @@ public class Conserje extends Usuario{
                     if (pasajero == null) {
                         pasajero = crearPasajero();
                     }
-                    System.out.println("Datos del pasajero: ");
+
+                    System.out.println("Datos del pasajero: \n");
+                    System.out.println(pasajero);
                     System.out.println(" ");
-                    System.out.println(pasajero.toString());
-                    System.out.println(" ");
+
                     habitacion.setDniPasajero(pasajero.getDni());
                     habitacion.setCheckIn(LocalDate.now());
                     habitacion.setEstado(EstadoHabitacion.OCUPADA);
                     habitacion.setCheckOut(null);
 
-                    System.out.println("El CheckIn fue realizado con exito ");
-                    System.out.println(" ");
-
+                    System.out.println("El CheckIn fue realizado con exito! \n\n");
 
                 } else {
                     System.out.println("No hay habitaciones disponibles de ese tipo, desea buscar habitaciones de otro tipo?: [s/n]");
@@ -409,9 +343,11 @@ public class Conserje extends Usuario{
 
     }
 
-    public double calcularPrecioDias(Habitacion habitacion, LocalDate desde, LocalDate hasta) {
-        return habitacion.getPrecio() * calcularTotalDias(desde, hasta);
-
+    public double calcularPrecioDias(Habitacion habitacion, double comida, LocalDate desde, LocalDate hasta) {
+        if (habitacion != null) {
+            return (habitacion.getPrecio() + comida) * calcularTotalDias(desde, hasta);
+        }
+        return 0;
     }
 
     public void checkOut() {
@@ -422,6 +358,7 @@ public class Conserje extends Usuario{
         Scanner scanner = new Scanner(System.in);
 
         while (com.equals("s")) {
+
             System.out.println("Ingrese DNI del pasajero: ");
 
             String dni = scanner.nextLine();
@@ -433,7 +370,15 @@ public class Conserje extends Usuario{
 
                 habitacion.setCheckOut(LocalDate.now());
 
-                total = calcularPrecioDias(habitacion, habitacion.getCheckIn(), habitacion.getCheckOut());
+                double valorComida;
+
+                if (habitacion.getRegimenComida() == RegimenComida.PENSION_COMPLETA) {
+                    valorComida = 200;
+                } else {
+                    valorComida = 100;
+                }
+
+                total = calcularPrecioDias(habitacion, valorComida, habitacion.getCheckIn(), habitacion.getCheckOut());
 
                 habitacion.setCheckIn(null);
                 habitacion.setEstado(EstadoHabitacion.LIBRE);
@@ -463,36 +408,32 @@ public class Conserje extends Usuario{
         while (com.equals("s")) {
             int opt;
 
+            System.out.println("¿Que tipo de habitacion desea elegir?\n");
+            System.out.println("1. Individual");
+            System.out.println("2. Doble");
+            System.out.println("3. Triple");
+            System.out.println("4. Queen");
 
-                System.out.println("¿Que tipo de habitacion desea elegir? ");
-                System.out.println(" ");
-                System.out.println("1. Individual");
-                System.out.println("2. Doble");
-                System.out.println("3. Triple");
-                System.out.println("4. Queen");
+            opt = scanner.nextInt();
 
-                opt = scanner.nextInt();
-
-                switch (opt) {
-                    //INDIVIDUAL
-                    case 1:
-                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
-                        break;
-                    //Doble
-                    case 2:
-                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
-                        break;
-                    //Triple
-                    case 3:
-                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
-                        break;
-                    //Queen
-                    case 4:
-                        habitacion = buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
-                        break;
-                }
-
-
+            switch (opt) {
+                //INDIVIDUAL
+                case 1:
+                    habitacion = buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
+                    break;
+                //Doble
+                case 2:
+                    habitacion = buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
+                    break;
+                //Triple
+                case 3:
+                    habitacion = buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
+                    break;
+                //Queen
+                case 4:
+                    habitacion = buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
+                    break;
+            }
 
             if (habitacion == null) {
                 System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
@@ -502,6 +443,20 @@ public class Conserje extends Usuario{
                 com = "n";
 
                 System.out.println("Se le asigno la habitacion nro: " + habitacion.getNumero());
+
+
+                System.out.println("Que tipo de regimen de comida desea?");
+
+                System.out.println("1. Media pension");
+                System.out.println("2. Pension completa");
+
+                int com1 = scanner.nextInt();
+
+                if (com1 == 1) {
+                    habitacion.setRegimenComida(RegimenComida.MEDIA_PENSION);
+                } else {
+                    habitacion.setRegimenComida(RegimenComida.PENSION_COMPLETA);
+                }
 
                 System.out.println("Ingrese el usuario del pasajero: ");
                 System.out.println(" ");
@@ -540,12 +495,43 @@ public class Conserje extends Usuario{
 
                 LocalDate fechaOut = LocalDate.of(anio, mes, dia);
 
-                Reserva reserva = new Reserva(habitacion.getNumero(), pasajero.getDni(), fechaIn, fechaOut, calcularPrecioDias(habitacion, fechaIn, fechaOut));
+                double valorComida;
 
+                if (habitacion.getRegimenComida() == RegimenComida.PENSION_COMPLETA) {
+                    valorComida = 200;
+                } else {
+                    valorComida = 100;
+                }
+
+
+                Reserva reserva = new Reserva(habitacion.getNumero(), pasajero.getDni(), fechaIn, fechaOut, calcularPrecioDias(habitacion, valorComida, fechaIn, fechaOut));
+
+                pasajero.setReserva(reserva);
                 Hotel.getReservaList().add(reserva);
                 System.out.println("Reserva realizada con exito ");
                 System.out.println("-------------------------------------------");
             }
+        }
+    }
+
+    public void cancelarReserva() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Cancelar Reserva\n\n");
+
+        System.out.print("Ingrese DNI del pasajero:");
+        String dni = scanner.next();
+        Reserva reserva = buscarReservaPasajero(dni);
+
+        if (reserva != null) {
+            reserva.setActivo(false);
+            Habitacion habitacion = buscarHabitacionPasajero(dni);
+            habitacion.setEstado(EstadoHabitacion.LIBRE);
+            Pasajero pasajero = buscarPasajerosDni(dni);
+            pasajero.setReserva(null);
+            System.out.println("Se ha cancelado la reserva.\n\n");
+        } else {
+            System.out.println("El pasajero no realizo una reserva.\n\n");
         }
     }
 

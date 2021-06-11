@@ -84,8 +84,6 @@ public class Habitacion {
         this.precio = precio;
     }
 
-
-
     public LocalDate getCheckIn() {
         return checkIn;
     }
