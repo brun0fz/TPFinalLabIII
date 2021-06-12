@@ -1,8 +1,22 @@
 [ {
-  "numeroHabitacion" : "9",
-  "dniPasajero" : "392131312",
+  "numeroHabitacion" : "1",
+  "dniPasajero" : "32123123",
   "fechaIn" : "2021-07-01",
   "fechaOut" : "2021-07-10",
-  "precio" : 7656.3,
+  "precio" : 3901.0499999999997,
+  "activo" : false
+}, {
+  "numeroHabitacion" : "1",
+  "dniPasajero" : "32123123",
+  "fechaIn" : "2021-10-12",
+  "fechaOut" : "2021-10-15",
+  "precio" : 1300.35,
+  "activo" : false
+}, {
+  "numeroHabitacion" : "1",
+  "dniPasajero" : "32434454",
+  "fechaIn" : "2021-06-11",
+  "fechaOut" : "2021-06-15",
+  "precio" : 1733.8,
   "activo" : false
 } ]

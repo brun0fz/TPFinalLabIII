@@ -151,33 +151,33 @@ public class Pasajero extends Usuario implements Serializable {
         while (com.equals("s")) {
             int opt;
 
-                System.out.println("Reserva\n");
-                System.out.println("Seleccione el Tipo de habitacion");
-                System.out.println("1. Individual");
-                System.out.println("2. Doble");
-                System.out.println("3. Triple");
-                System.out.println("4. Queen");
+            System.out.println("Reserva\n");
+            System.out.println("Seleccione el Tipo de habitacion");
+            System.out.println("1. Individual");
+            System.out.println("2. Doble");
+            System.out.println("3. Triple");
+            System.out.println("4. Queen");
 
-                opt = scanner.nextInt();
+            opt = scanner.nextInt();
 
-                switch (opt) {
-                    //INDIVIDUAL
-                    case 1:
-                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
-                        break;
-                    //Doble
-                    case 2:
-                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
-                        break;
-                    //Triple
-                    case 3:
-                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
-                        break;
-                    //Queen
-                    case 4:
-                        habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
-                        break;
-                }
+            switch (opt) {
+                //INDIVIDUAL
+                case 1:
+                    habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.INDIVIDUAL);
+                    break;
+                //Doble
+                case 2:
+                    habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.DOBLE);
+                    break;
+                //Triple
+                case 3:
+                    habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.TRIPLE);
+                    break;
+                //Queen
+                case 4:
+                    habitacion = conserje.buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
+                    break;
+            }
 
             if (habitacion == null) {
                 System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
@@ -247,13 +247,35 @@ public class Pasajero extends Usuario implements Serializable {
         }
     }
 
+    public void verMiReserva() {
+        if (this.reserva != null) {
+            System.out.println("Mi reserva: \n");
+            System.out.println(reserva);
+        } else {
+            System.out.println("Usted no realizo una reserva. \n\n");
+        }
+
+    }
+
+    public void cancelarMiReserva() {
+        if (this.reserva != null) {
+            int index = Hotel.getReservaList().indexOf(reserva);
+            Hotel.getReservaList().get(index).setActivo(false);
+            this.reserva = null;
+            Habitacion habitacion = buscarMiHabitacion();
+            habitacion.setRegimenComida(null);
+            habitacion.setEstado(EstadoHabitacion.LIBRE);
+            habitacion.setDniPasajero(null);
+            System.out.println("Se ha cancelado la reserva");
+        }
+
+    }
 
     @Override
     public String toString() {
         return super.toString() +
                 "Direccion........" + direccion + "\n" +
                 "Telefono........." + telefono + "\n" +
-                "Email............" + email + "\n" +
-                "Reserva.........." + reserva;
+                "Email............" + email + "\n";
     }
 }

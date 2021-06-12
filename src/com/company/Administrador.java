@@ -127,33 +127,44 @@ public class Administrador extends Conserje {
         return null;
     }
 
+    public Usuario buscarUsuarioSinFil(String dni) {
+        for (Usuario usuario : Hotel.getUsuarioList()) {
+            if (usuario.getDni().equals(dni)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+
     public void darBajaAlta(Usuario user) {
 
         Scanner scanner = new Scanner(System.in);
         String com;
 
-        if (user.isActivo()) {
+        if (user != null && user.isActivo()) {
             System.out.println("Desea darlo de baja?: [s/n]");
             com = scanner.next();
 
-            if (com == "s") {
+            if (com.equals("s")) {
                 System.out.println("Se ha realizado la baja");
                 user.setActivo(false);
             } else {
                 System.out.println("No se ha realizado la baja.");
             }
 
-        } else {
+        } else if (user != null && !user.isActivo()) {
 
             System.out.println("Desea darlo de alta?: [s/n]");
             com = scanner.next();
 
-            if (com == "s") {
+            if (com.equals("s")) {
                 System.out.println("Se ha realizado el alta");
                 user.setActivo(true);
             } else {
                 System.out.println("No se ha realizado el alta");
             }
+        } else {
+            System.out.println("\nNo se ha encontrado al usuario.\n");
         }
     }
 
@@ -349,9 +360,12 @@ public class Administrador extends Conserje {
     }
 
     public void guardarListaUsuarioArchivo() {
-
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping();
+
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("usuariosList.json"), Hotel.getUsuarioList());
         } catch (IOException e) {
@@ -362,6 +376,10 @@ public class Administrador extends Conserje {
     public void cargarListaUsuarioArchivo() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping();
+
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
         JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, Usuario.class);
         try {
             List<Usuario> usuarioList = mapper.readValue(new File("usuariosList.json"), javaType);

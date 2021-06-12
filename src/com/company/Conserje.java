@@ -1,8 +1,5 @@
 package com.company;
 
-
-//import org.jetbrains.annotations.NotNull;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
@@ -92,6 +89,15 @@ public class Conserje extends Usuario implements Descuento {
                 System.out.println(reserva);
             }
         }
+    }
+
+    public Conserje buscarConserjeDni(String dni) {
+        for (Usuario usuario : Hotel.getUsuarioList()) {
+            if (usuario instanceof Conserje && usuario.isActivo() && usuario.getDni().equals(dni)) {
+                return (Conserje) usuario;
+            }
+        }
+        return null;
     }
 
     public void modificarConserje(Conserje conserje) {
@@ -202,9 +208,8 @@ public class Conserje extends Usuario implements Descuento {
 
         String com;
 
-        Habitacion habitacion = new Habitacion();
+        Habitacion habitacion = null;
         System.out.print("Tiene una reserva? [s/n]: ");
-        System.out.println(" ");
         com = scanner.nextLine();
 
         if (com.equals("s")) {
@@ -219,6 +224,7 @@ public class Conserje extends Usuario implements Descuento {
                 reserva = buscarReservaPasajero(dni);
 
                 if (reserva != null) {
+                    com = "n";
 
                     habitacion = buscarHabitacionNro(reserva.getNumeroHabitacion());
 
@@ -273,6 +279,8 @@ public class Conserje extends Usuario implements Descuento {
                     case 4:
                         habitacion = buscarHabitacionDisponible(TipoDeHabitacion.QUEEN);
                         break;
+
+                    default:
                 }
 
                 if (habitacion != null) {
@@ -296,8 +304,8 @@ public class Conserje extends Usuario implements Descuento {
 
                     System.out.print("Ingrese el usuario del pasajero: ");
 
-                    scanner.nextLine();
-                    String usuario = scanner.nextLine();
+                    scanner.next();
+                    String usuario = scanner.next();
 
                     Pasajero pasajero = buscarPasajerosUsuario(usuario);
 
@@ -317,8 +325,8 @@ public class Conserje extends Usuario implements Descuento {
                     System.out.println("El CheckIn fue realizado con exito! \n\n");
 
                 } else {
-                    System.out.println("No hay habitaciones disponibles de ese tipo, desea buscar habitaciones de otro tipo?: [s/n]");
-                    com = scanner.nextLine();
+                    System.out.print("No hay habitaciones disponibles de ese tipo, desea buscar habitaciones de otro tipo?: [s/n]");
+                    com = scanner.next();
                 }
             }
 
@@ -338,8 +346,13 @@ public class Conserje extends Usuario implements Descuento {
     public int calcularTotalDias(LocalDate desde, LocalDate hasta) {
 
         Period period = Period.between(desde, hasta);
+        int periodo = period.getDays();
 
-        return period.getDays();
+        if (periodo == 0) {
+            periodo = 1;
+        }
+
+        return periodo;
 
     }
 
@@ -383,9 +396,7 @@ public class Conserje extends Usuario implements Descuento {
                 double descuento = 0;
                 String opcion;
                 int opt;
-                System.out.println("¿Tiene voucher de descuento?");
-                System.out.println("s/n ");
-                System.out.println(" ");
+                System.out.print("¿Tiene voucher de descuento? [s/n]: ");
                 opcion = scanner.next();
 
                 if (opcion.equals("s")) {
@@ -393,8 +404,8 @@ public class Conserje extends Usuario implements Descuento {
                     System.out.println("Elija el descuento: ");
                     System.out.println("1. 5% ");
                     System.out.println("2. 10% ");
-                    System.out.println("3. 15% \n");
-                    System.out.println("0. Salir");
+                    System.out.println("3. 15% ");
+                    System.out.println("0. No aplicar descuento");
 
                     opt = scanner.nextInt();
                     switch (opt) {
@@ -409,7 +420,9 @@ public class Conserje extends Usuario implements Descuento {
                             break;
                     }
 
-                    total = aplicarDescuento(descuento, total);
+                    if (descuento != 0) {
+                        total = aplicarDescuento(descuento, total);
+                    }
                 }
                 habitacion.setCheckIn(null);
                 habitacion.setEstado(EstadoHabitacion.LIBRE);
@@ -492,9 +505,7 @@ public class Conserje extends Usuario implements Descuento {
                     habitacion.setRegimenComida(RegimenComida.PENSION_COMPLETA);
                 }
 
-                System.out.println("Ingrese el usuario del pasajero: ");
-                System.out.println(" ");
-
+                System.out.print("Ingrese el usuario del pasajero: ");
                 String usuario = scanner.next();
 
                 Pasajero pasajero = buscarPasajerosUsuario(usuario);

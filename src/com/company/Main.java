@@ -58,8 +58,7 @@ public class Main {
 
         admin.guardarListaUsuarioArchivo();
         admin.guardarListaHabitacionArchivo();
-        admin.guardarListaReservaArchivo();
-        */
+        admin.guardarListaReservaArchivo();*/
 
 
         admin.cargarListaUsuarioArchivo();
@@ -67,7 +66,10 @@ public class Main {
         admin.cargarListaReservaArchivo();
 
         sistemaHoteleria();
-        ///interfaz
+
+        admin.guardarListaUsuarioArchivo();
+        admin.guardarListaHabitacionArchivo();
+        admin.guardarListaReservaArchivo();
     }
 
     public static void sistemaHoteleria() {
@@ -314,10 +316,9 @@ public class Main {
                                 System.out.println("7. Mostrar reservas activas");
                                 System.out.println("8. Cancelar reserva");
                                 System.out.println("9. Crear Usuario");
-                                System.out.println("10. Asignar Permisos");
-                                System.out.println("11. Modificar Usuarios");
-                                System.out.println("12. Modificar Habitaciones");
-                                System.out.println("13. Realizar Back-Up");
+                                System.out.println("10. Modificar Usuarios");
+                                System.out.println("11. Modificar Habitaciones");
+                                System.out.println("12. Realizar Back-Up");
                                 System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
@@ -503,12 +504,8 @@ public class Main {
                                         } while (com1 != 0);
                                         break;
 
-                                    //Asignar Permisos
-                                    case 10:
-                                        break;
-
                                     //Modificar usuarios
-                                    case 11:
+                                    case 10:
 
                                         do {
 
@@ -544,8 +541,9 @@ public class Main {
                                                     break;
 
                                                 case 2:
+                                                    System.out.print("Ingrese el DNI del usuario: ");
                                                     String dni1 = scanner.next();
-                                                    admin.darBajaAlta(admin.buscarUsuario(dni1));
+                                                    admin.darBajaAlta(admin.buscarUsuarioSinFil(dni1));
                                                     break;
 
                                                 case 0:
@@ -556,17 +554,16 @@ public class Main {
 
                                         break;
 
-                                    case 12:
+                                    case 11:
                                         admin.modificarHabitacion();
                                         break;
 
                                     //Realizar Back-Up
-                                    case 13:
+                                    case 12:
                                         admin.guardarListaUsuarioArchivo();
                                         admin.guardarListaHabitacionArchivo();
                                         admin.guardarListaReservaArchivo();
-
-                                        System.out.println("Realizando Back-Up...");
+                                        System.out.println("Backup realizado con exito!");
                                         break;
 
                                     default:
@@ -577,11 +574,13 @@ public class Main {
                         //Menu Pasajero
                         case 3:
                             do {
-                                System.out.println("Menu Pasajero");
+                                System.out.println("Menu Pasajero\n");
                                 System.out.println("1. Realizar reserva remota");
                                 System.out.println("2. Ver mis datos");
-                                System.out.println("3. Modificar mis datos");
-                                System.out.println("0. Salir");
+                                System.out.println("3. Ver mi reserva");
+                                System.out.println("4. Cancelar mi reserva");
+                                System.out.println("5. Modificar mis datos");
+                                System.out.println("\n0. Salir");
 
                                 com = scanner.nextInt();
 
@@ -596,11 +595,21 @@ public class Main {
                                         break;
 
                                     case 3:
+                                        pasajero.verMiReserva();
+                                        break;
+
+                                    case 4:
+                                        pasajero.cancelarMiReserva();
+                                        break;
+
+                                    case 5:
                                         pasajero.modificarPasajero();
                                         break;
 
                                     case 0:
                                         break;
+
+                                    default:
 
                                 }
                             } while (com != 0);
@@ -608,6 +617,8 @@ public class Main {
 
                         case 4:
                             break;
+
+                        default:
                     }
 
                     break;
