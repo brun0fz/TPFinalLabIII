@@ -7,10 +7,21 @@ public class Main {
     public static void main(String[] args) {
 
         Administrador admin = new Administrador("Bruno", "Fabrizio", "40579965", "brunofz", "1759");
-        /*Administrador admin2 = new Administrador("Danilo", "Suarez", "33102857", "danilomdq", "2481");
+
+        /*
+        Administrador admin2 = new Administrador("Danilo", "Suarez", "33102857", "danilomdq", "2481");
 
         Conserje conserje = new Conserje("Ezequiel", "Rage", "27123123", "eze", "1234");
+
         Pasajero pasajero = new Pasajero("Carlos", "Miranda", "32123123", "charly", "1234", "Funes 2461", "2236688139", "charly@gmail.com");
+        Pasajero pasajero1 = new Pasajero("Gina", "Fabrizio", "30123543", "gi", "1234", "Las heras 2461", "223599889", "gina@gmail.com");
+        Pasajero pasajero2 = new Pasajero("Gustavo", "Manzo", "47676667", "gustavo", "1234", "20 de Septiembre 2461", "223887767", "gustavo@gmail.com");
+        Hotel.getUsuarioList().add(admin);
+        Hotel.getUsuarioList().add(admin2);
+        Hotel.getUsuarioList().add(conserje);
+        Hotel.getUsuarioList().add(pasajero);
+        Hotel.getUsuarioList().add(pasajero1);
+        Hotel.getUsuarioList().add(pasajero2);
 
         Habitacion habi = new Habitacion("1", "1", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
         Habitacion habi1 = new Habitacion("1", "2", TipoDeHabitacion.INDIVIDUAL, 333.45, EstadoHabitacion.LIBRE);
@@ -48,18 +59,11 @@ public class Main {
         Hotel.getHabitacionList().add(habi33);
 
 
-
-
-        Hotel.getUsuarioList().add(admin);
-        Hotel.getUsuarioList().add(admin2);
-        Hotel.getUsuarioList().add(conserje);
-        Hotel.getUsuarioList().add(pasajero);
-
-
         admin.guardarListaUsuarioArchivo();
         admin.guardarListaHabitacionArchivo();
-        admin.guardarListaReservaArchivo();*/
-
+        admin.guardarListaReservaArchivo();
+*/
+//////////////////////////////////////////////////////////////////////////////////////////
 
         admin.cargarListaUsuarioArchivo();
         admin.cargarListaHabitacionArchivo();

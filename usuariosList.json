@@ -33,12 +33,23 @@
 } ], [ "com.company.Pasajero", {
   "nombre" : "Gina",
   "apellido" : "Fabrizio",
-  "dni" : "32434454",
+  "dni" : "30123543",
   "usuario" : "gi",
   "constrasena" : "1234",
   "activo" : true,
-  "direccion" : "las heras",
-  "telefono" : "4322343",
+  "direccion" : "Las heras 2461",
+  "telefono" : "223599889",
   "email" : "gina@gmail.com",
+  "reserva" : null
+} ], [ "com.company.Pasajero", {
+  "nombre" : "Gustavo",
+  "apellido" : "Manzo",
+  "dni" : "47676667",
+  "usuario" : "gustavo",
+  "constrasena" : "1234",
+  "activo" : true,
+  "direccion" : "20 de Septiembre 2461",
+  "telefono" : "223887767",
+  "email" : "gustavo@gmail.com",
   "reserva" : null
 } ] ]

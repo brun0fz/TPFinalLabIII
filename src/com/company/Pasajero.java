@@ -65,7 +65,7 @@ public class Pasajero extends Usuario implements Serializable {
 
             System.out.println("Modificar Pasajero");
 
-            System.out.println(toString());
+            System.out.println(this);
 
             System.out.println("1. Nombre");
             System.out.println("2. Apellido");
@@ -146,7 +146,7 @@ public class Pasajero extends Usuario implements Serializable {
 
         String com = "s";
 
-        Habitacion habitacion = new Habitacion();
+        Habitacion habitacion = null;
 
         while (com.equals("s")) {
             int opt;
@@ -181,7 +181,7 @@ public class Pasajero extends Usuario implements Serializable {
 
             if (habitacion == null) {
                 System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
-                com = scanner.nextLine();
+                com = scanner.next();
 
             } else {
                 com = "n";
@@ -267,6 +267,8 @@ public class Pasajero extends Usuario implements Serializable {
             habitacion.setEstado(EstadoHabitacion.LIBRE);
             habitacion.setDniPasajero(null);
             System.out.println("Se ha cancelado la reserva");
+        }else{
+            System.out.println("Usted no realizo una reserva. \n\n");
         }
 
     }

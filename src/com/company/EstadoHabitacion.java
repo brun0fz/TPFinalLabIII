@@ -5,5 +5,5 @@ public enum EstadoHabitacion {
     OCUPADA,
     LIMPIEZA,
     REPARACION,
-    RESERVADA;
+    RESERVADA
 }

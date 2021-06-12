@@ -4,5 +4,5 @@ public enum TipoDeHabitacion {
     INDIVIDUAL,
     DOBLE,
     TRIPLE,
-    QUEEN;
+    QUEEN
 }

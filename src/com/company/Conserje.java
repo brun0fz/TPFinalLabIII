@@ -59,7 +59,6 @@ public class Conserje extends Usuario implements Descuento {
                 return (Pasajero) usuario;
             }
         }
-
         return null;
     }
 
@@ -69,7 +68,6 @@ public class Conserje extends Usuario implements Descuento {
                 return (Pasajero) usuario;
             }
         }
-
         return null;
     }
 
@@ -450,7 +448,7 @@ public class Conserje extends Usuario implements Descuento {
 
         String com = "s";
 
-        Habitacion habitacion = new Habitacion();
+        Habitacion habitacion = null;
 
         while (com.equals("s")) {
             int opt;
@@ -484,7 +482,7 @@ public class Conserje extends Usuario implements Descuento {
 
             if (habitacion == null) {
                 System.out.println("No hay habitaciones disponibles de ese tipo, esea buscar habitaciones de otro tipo?: [s/n]");
-                com = scanner.nextLine();
+                com = scanner.next();
 
             } else {
                 com = "n";
@@ -562,23 +560,29 @@ public class Conserje extends Usuario implements Descuento {
     public void cancelarReserva() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Cancelar Reserva\n\n");
+        System.out.println("Cancelar Reserva\n");
 
         System.out.print("Ingrese DNI del pasajero:");
         String dni = scanner.next();
         Reserva reserva = buscarReservaPasajero(dni);
 
         if (reserva != null) {
+
             reserva.setActivo(false);
 
             Habitacion habitacion = buscarHabitacionPasajero(dni);
 
-            habitacion.setEstado(EstadoHabitacion.LIBRE);
-            habitacion.setDniPasajero(null);
-            habitacion.setRegimenComida(null);
+            if (habitacion != null) {
+                habitacion.setEstado(EstadoHabitacion.LIBRE);
+                habitacion.setDniPasajero(null);
+                habitacion.setRegimenComida(null);
+            }
 
             Pasajero pasajero = buscarPasajerosDni(dni);
-            pasajero.setReserva(null);
+
+            if (pasajero != null) {
+                pasajero.setReserva(null);
+            }
 
             System.out.println("Se ha cancelado la reserva.\n\n");
         } else {
